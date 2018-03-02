@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
 		//Movement
 		if (OVRInput.Get (OVRInput.Button.SecondaryThumbstick)) {
+			//TODO: .forward()
 			Debug.Log ("Entering");
 			Debug.Log (camera.transform.forward);
 			Vector3 temp = player.transform.position;
