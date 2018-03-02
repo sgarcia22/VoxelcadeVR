@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
 		//Movement
 		if (OVRInput.Get (OVRInput.Button.SecondaryThumbstick)) {
+			//TODO: .forward()
 			Debug.Log ("Entering");
 			Vector3 position = player.transform.position;
 			float yRotation = camera.transform.rotation.y;
