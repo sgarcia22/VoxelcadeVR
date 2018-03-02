@@ -25,11 +25,11 @@ public class PlayerMovement : MonoBehaviour {
 		//Movement
 		if (OVRInput.Get (OVRInput.Button.SecondaryThumbstick)) {
 			Debug.Log ("Entering");
-			Vector3 position = player.transform.position;
-			float yRotation = camera.transform.rotation.y;
-			yRotation += speed * Time.deltaTime;
-			position.y = yRotation;
-			player.transform.position = position;
+			Debug.Log (camera.transform.forward);
+			Vector3 temp = player.transform.position;
+			temp.x = camera.transform.position.x * speed * Time.deltaTime;
+			temp.y = camera.transform.position.y * speed * Time.deltaTime;
+			player.transform.position = temp;
 		}
 	}
 
