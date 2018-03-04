@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour {
 	private Rigidbody rigidbody;
 	private GameObject rightHand;
 	private GameObject leftHand;
-	public GameObject camera;
+	private GameObject camera;
 
 	public float speed = 2f;
 
@@ -18,19 +18,18 @@ public class PlayerMovement : MonoBehaviour {
 		rigidbody = player.GetComponent<Rigidbody> ();
 		rightHand = GameObject.FindGameObjectWithTag ("RightHand");
 		leftHand = GameObject.FindGameObjectWithTag ("LeftHand");
+		camera = GameObject.FindGameObjectWithTag ("MainCamera");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//Movement
-		if (OVRInput.Get (OVRInput.Button.SecondaryThumbstick)) {
-			//TODO: .forward()
-			Debug.Log ("Entering");
-			Debug.Log (camera.transform.forward);
-			Vector3 temp = player.transform.position;
-			temp.x = camera.transform.position.x * speed * Time.deltaTime;
-			temp.y = camera.transform.position.y * speed * Time.deltaTime;
-			player.transform.position = temp;
+		if (OVRInput.Get (OVRInput.Button.Two)) {
+			//Vector3 temp = new Vector3 (camera.transform.rotation.x, 0f, camera.transform.rotation.z);
+			//Debug.Log (temp);
+			Vector3 temp = camera.transform.forward;
+			temp.y = 0f;
+			player.transform.position += temp * Time.deltaTime * speed;
 		}
 	}
 
