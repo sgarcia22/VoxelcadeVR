@@ -139,6 +139,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4353614249038100}
+  - component: {fileID: 65048372209790292}
+  - component: {fileID: 65061523812759702}
   m_Layer: 0
   m_Name: Flat Corridor
   m_TagString: Untagged
@@ -608,6 +610,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1210210417536916}
   m_Mesh: {fileID: 4300000, guid: d99d74b25e1ef324ba487ba59ad07cdd, type: 3}
+--- !u!65 &65048372209790292
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1761427865406598}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.60246295, y: 0.04994023, z: 0.13573837}
+  m_Center: {x: 0.0003655851, y: 0.9063068, z: 3.9177804}
+--- !u!65 &65061523812759702
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1761427865406598}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.60246295, y: 0.06824148, z: 0.18843699}
+  m_Center: {x: 0.0003655851, y: 0.95032996, z: -3.3426435}
 --- !u!65 &65224019552408546
 BoxCollider:
   m_ObjectHideFlags: 1
