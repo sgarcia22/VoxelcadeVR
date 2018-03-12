@@ -25,8 +25,6 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
 		//Movement
 		if (OVRInput.Get (OVRInput.Button.Two)) {
-			//Vector3 temp = new Vector3 (camera.transform.rotation.x, 0f, camera.transform.rotation.z);
-			//Debug.Log (temp);
 			Vector3 temp = camera.transform.forward;
 			temp.y = 0f;
 			player.transform.position += temp * Time.deltaTime * speed;
