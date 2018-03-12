@@ -17,7 +17,6 @@ public class GroundMoles : MonoBehaviour {
 	void Update () {
 		if (currentMoles <= maxMoles) {
 			int getMole = Random.Range (0, moles.Length);
-			//TODO
 		}
 	}
 }
