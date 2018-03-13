@@ -10,51 +10,33 @@ public class HandControls : MonoBehaviour {
 
 	private float counter;
 	private Vector3 previousPosition;
+	public float speed = 0.5f;
 
-	// Use this for initialization
 	void Start () {
 		hand = gameObject.GetComponent<Rigidbody> ();
+		Debug.Log (hand);
 		goingFast = false;
 		previousPosition = gameObject.transform.position;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (counter >= 25 && gameObject.name == "hand_right") {
-			Debug.Log (Vector3.Distance (gameObject.transform.position, previousPosition));
-			if (Vector3.Distance (gameObject.transform.position, previousPosition) >= 0.5f) {
-				Debug.Log ("Going FASTTTT");
-				goingFast = true;
-			} else {
-				goingFast = false;
-			}
-			counter = 0;
-			previousPosition = gameObject.transform.position;
-		}
-		counter++;
 
-		/*if (gameObject.name == "hand_right")
-			Debug.Log (hand.velocity.z);
-		if (hand.velocity.z > 1) {
-			//Debug.Log ("SUPER FAST");
-			goingFast = true;
-		} else {
-			goingFast = false;
-		}*/
+	void Update () {
+		//Debug.Log (gameObject.name + "   " + hand.velocity.magnitude);
 	}
 
 	void OnCollisionEnter (Collision col) {
+		///TODO: Left Hand not doing it correctly all of the times
 		if (col.collider.tag == "Enemy") {
 			//Left Hand
-			if (gameObject.name == "hand_left" && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) >= 0.25 && OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) >= 0.25 && goingFast) {
+			if (gameObject.name == "hand_left" && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) >= 0.25 && OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) >= 0.25 && hand.velocity.magnitude >= speed) {
+				Debug.Log ("Destroy");
 				//Destroy the enemy
-				Destroy (col.gameObject);
+				//Destroy (col.gameObject);
 			}
 			//Right Hand
-			else if (gameObject.name == "hand_right" && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) >= 0.25 && OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) >= 0.25 && goingFast) {
-				Debug.Log ("Entering");
+			else if (gameObject.name == "hand_right" && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) >= 0.25 && OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) >= 0.25 && hand.velocity.magnitude >= speed) {
+				Debug.Log ("Destroy");
 				//Destroy the enemy
-				Destroy (col.gameObject);
+				//Destroy (col.gameObject);
 			}
 		}
 	}
