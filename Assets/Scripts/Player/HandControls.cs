@@ -25,16 +25,24 @@ public class HandControls : MonoBehaviour {
 
 	void OnCollisionEnter (Collision col) {
 		///TODO: Left Hand not doing it correctly all of the times
-		if (col.collider.tag == "Enemy") {
+		if (col.collider.tag == "Enemy" || col.collider.tag == "Mole") {
 			//Left Hand
 			if (gameObject.name == "hand_left" && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) >= 0.25 && OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) >= 0.25 && hand.velocity.magnitude >= speed) {
 				Debug.Log ("Destroy");
+				if (col.collider.tag == "Mole") {
+					Moles mole = col.gameObject.GetComponent<Moles>();
+					mole.state = Moles.State.GOING_DOWN;
+				}
 				//Destroy the enemy
 				//Destroy (col.gameObject);
 			}
 			//Right Hand
 			else if (gameObject.name == "hand_right" && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) >= 0.25 && OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) >= 0.25 && hand.velocity.magnitude >= speed) {
 				Debug.Log ("Destroy");
+				if (col.collider.tag == "Mole") {
+					Moles mole = col.gameObject.GetComponent<Moles>();
+					mole.state = Moles.State.GOING_DOWN;
+				}
 				//Destroy the enemy
 				//Destroy (col.gameObject);
 			}
