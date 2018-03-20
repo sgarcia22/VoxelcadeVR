@@ -34,9 +34,9 @@ public class Moles : MonoBehaviour {
 	}
 
 	void Update () {
-		float random = Random.Range (0, 10);
+		float random = Random.Range (2, 10);
 		if (currentTime >= random && state == State.UP) {
-			Debug.Log ("ENTERING");
+			//Debug.Log ("ENTERING");
 			state = State.GOING_DOWN;
 			currentTime = 0;
 		}
@@ -64,20 +64,21 @@ public class Moles : MonoBehaviour {
 				else if (gameObject.transform.position == originalPosition) {
 					moving = false;
 					activated = false;
-					state = State.DOWN;
-					manager.currentMoles--;
 					for (int i = 0; i < manager.molesSurfaced.Count; ++i) {
 						if (gameObject == manager.molesSurfaced [i]) {
 							manager.molesSurfaced.RemoveAt (i);
+							Debug.Log ("Removing");
+							break;
 						}	
 					}
+					manager.currentMoles--;
+					state = State.DOWN;
 				}
 				if (moving){
 					float speed = Time.deltaTime * moleSpeed;
 					transform.position = Vector3.MoveTowards(gameObject.transform.position, originalPosition, speed);
 				}
 				break;
-			//TODO::Do Something?
 			case State.UP:
 				break;
 			case State.DOWN:
@@ -86,29 +87,6 @@ public class Moles : MonoBehaviour {
 		currentTime += Time.deltaTime;
 	}
 
-	/*private void GoDown() {
-		if (gameObject.transform.position == distanceToMove) {
-			Vector3 temp = gameObject.transform.position;
-			temp.y -= distance;
-			gameObject.transform.position = temp;
-		} 
-		else {
-			state = State.DOWN;
-		}
-	}
-
-
-	private void GoUp() {
-		if (gameObject.transform.position != distanceToMove) {
-			Vector3 temp = gameObject.transform.position;
-			temp.y += distance;
-			gameObject.transform.position = temp;
-		} 
-		else {
-			state = State.UP;
-		}
-	}
-*/
 	void OnCollisionEnter (Collision col) {
 		//Make sure the player is making the correct movements then call GoDown()
 		if (col.collider.tag == "Player" && (state == State.UP || state == State.GOING_UP)) {
