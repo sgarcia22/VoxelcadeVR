@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-	private GameObject player;
+	public GameObject player;
 	private Rigidbody rigidbody;
 	private GameObject rightHand;
 	private GameObject leftHand;
@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindGameObjectWithTag ("Player");
+		//player = GameObject.FindGameObjectWithTag ("Player");
 		rigidbody = player.GetComponent<Rigidbody> ();
 		rightHand = GameObject.FindGameObjectWithTag ("RightHand");
 		leftHand = GameObject.FindGameObjectWithTag ("LeftHand");

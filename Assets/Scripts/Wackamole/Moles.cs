@@ -17,7 +17,7 @@ public class Moles : MonoBehaviour {
 	public float handSpeed = 0.5f;
 	private float timeToGoDown = 1f;
 	private float currentTime = 0f;
-	private float distance = 2f;
+	private float distance = .8f;
 	private float moleSpeed = 2f;
 	private bool activated = false;
 	private bool moving = false;
@@ -34,7 +34,7 @@ public class Moles : MonoBehaviour {
 	}
 
 	void Update () {
-		float random = Random.Range (2, 10);
+		float random = Random.Range (7, 15);
 		if (currentTime >= random && state == State.UP) {
 			//Debug.Log ("ENTERING");
 			state = State.GOING_DOWN;
@@ -67,7 +67,7 @@ public class Moles : MonoBehaviour {
 					for (int i = 0; i < manager.molesSurfaced.Count; ++i) {
 						if (gameObject == manager.molesSurfaced [i]) {
 							manager.molesSurfaced.RemoveAt (i);
-							Debug.Log ("Removing");
+							//Debug.Log ("Removing");
 							break;
 						}	
 					}
@@ -86,7 +86,7 @@ public class Moles : MonoBehaviour {
 		}
 		currentTime += Time.deltaTime;
 	}
-
+	/*
 	void OnCollisionEnter (Collision col) {
 		//Make sure the player is making the correct movements then call GoDown()
 		if (col.collider.tag == "Player" && (state == State.UP || state == State.GOING_UP)) {
@@ -99,5 +99,5 @@ public class Moles : MonoBehaviour {
 				state = State.GOING_DOWN;
 			}
 		}
-	}
+	}*/
 }

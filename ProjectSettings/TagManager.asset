@@ -9,6 +9,7 @@ TagManager:
   - LeftHand
   - RightHand
   - GameManager
+  - Mole
   layers:
   - Default
   - TransparentFX
