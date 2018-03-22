@@ -148,7 +148,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 24630803}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.86, y: -0.49, z: 2.13}
+  m_LocalPosition: {x: 13.718, y: -0.289, z: 0.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1229684767}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 144412001}
   m_Layer: 0
   m_Name: Capsule (6)
-  m_TagString: Enemy
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,11 +181,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 144411996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.012999994, y: 1.66, z: 0.092}
-  m_LocalScale: {x: 0.05344736, y: 1, z: 0.0385208}
+  m_LocalPosition: {x: 13.691, y: -1.742, z: -0.253}
+  m_LocalScale: {x: 0.25, y: 0.86, z: 0.25}
   m_Children: []
-  m_Father: {fileID: 168959248}
-  m_RootOrder: 6
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &144411998
 MeshRenderer:
@@ -334,15 +334,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.18, y: -1.5813131, z: -3.8962116}
   m_LocalScale: {x: 18.71, y: 1, z: 25.96}
-  m_Children:
-  - {fileID: 1149280988}
-  - {fileID: 254696976}
-  - {fileID: 1521877353}
-  - {fileID: 244554892}
-  - {fileID: 1768181802}
-  - {fileID: 1929693497}
-  - {fileID: 144411997}
-  - {fileID: 316582368}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -360,7 +352,7 @@ GameObject:
   - component: {fileID: 244554896}
   m_Layer: 0
   m_Name: Capsule (3)
-  m_TagString: Enemy
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -372,11 +364,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 244554891}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 1.66, z: 0.15933017}
-  m_LocalScale: {x: 0.05344736, y: 1, z: 0.0385208}
+  m_LocalPosition: {x: 13.055, y: -1.742, z: 0.43}
+  m_LocalScale: {x: 0.25, y: 0.86, z: 0.25}
   m_Children: []
-  m_Father: {fileID: 168959248}
-  m_RootOrder: 3
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &244554893
 MeshRenderer:
@@ -459,7 +451,7 @@ GameObject:
   - component: {fileID: 254696980}
   m_Layer: 0
   m_Name: Capsule (1)
-  m_TagString: Enemy
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -471,11 +463,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 254696975}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.052, y: 1.66, z: 0.203}
-  m_LocalScale: {x: 0.05344736, y: 1, z: 0.0385208}
+  m_LocalPosition: {x: 14.237, y: -1.742, z: 0.715}
+  m_LocalScale: {x: 0.25, y: 0.86, z: 0.25}
   m_Children: []
-  m_Father: {fileID: 168959248}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &254696977
 MeshRenderer:
@@ -603,7 +595,7 @@ GameObject:
   - component: {fileID: 316582372}
   m_Layer: 0
   m_Name: Capsule (7)
-  m_TagString: Enemy
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -615,11 +607,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 316582367}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.052000027, y: 1.66, z: 0.1111}
-  m_LocalScale: {x: 0.05344736, y: 1, z: 0.0385208}
+  m_LocalPosition: {x: 14.121, y: -1.742, z: -0.073}
+  m_LocalScale: {x: 0.25, y: 0.86, z: 0.25}
   m_Children: []
-  m_Father: {fileID: 168959248}
-  m_RootOrder: 7
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &316582369
 MeshRenderer:
@@ -706,7 +698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &404232815
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -854,6 +846,8 @@ MonoBehaviour:
   maxMoles: 3
   currentMoles: 0
   molesSurfaced: []
+  trackingMoles: 
+  maxTime: 60
 --- !u!1001 &1100571462
 Prefab:
   m_ObjectHideFlags: 0
@@ -918,7 +912,7 @@ GameObject:
   - component: {fileID: 1149280992}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Enemy
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -930,11 +924,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1149280987}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08230893, y: 1.66, z: 0.15933017}
-  m_LocalScale: {x: 0.05344736, y: 1, z: 0.0385208}
+  m_LocalPosition: {x: 14.339, y: -1.742, z: 0.321}
+  m_LocalScale: {x: 0.25, y: 0.86, z: 0.25}
   m_Children: []
-  m_Father: {fileID: 168959248}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1149280989
 MeshRenderer:
@@ -1197,7 +1191,7 @@ GameObject:
   - component: {fileID: 1521877357}
   m_Layer: 0
   m_Name: Capsule (2)
-  m_TagString: Enemy
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1209,11 +1203,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1521877352}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.013, y: 1.66, z: 0.231}
-  m_LocalScale: {x: 0.05344736, y: 1, z: 0.0385208}
+  m_LocalPosition: {x: 13.807, y: -1.742, z: 0.975}
+  m_LocalScale: {x: 0.25, y: 0.86, z: 0.25}
   m_Children: []
-  m_Father: {fileID: 168959248}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1521877354
 MeshRenderer:
@@ -1299,7 +1293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1536909983
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1380,7 +1374,7 @@ GameObject:
   - component: {fileID: 1768181806}
   m_Layer: 0
   m_Name: Capsule (4)
-  m_TagString: Enemy
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1392,11 +1386,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1768181801}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.091, y: 1.66, z: 0.208}
-  m_LocalScale: {x: 0.05344736, y: 1, z: 0.0385208}
+  m_LocalPosition: {x: 13.297, y: -1.742, z: 0.848}
+  m_LocalScale: {x: 0.25, y: 0.86, z: 0.25}
   m_Children: []
-  m_Father: {fileID: 168959248}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1768181803
 MeshRenderer:
@@ -1479,7 +1473,7 @@ GameObject:
   - component: {fileID: 1929693501}
   m_Layer: 0
   m_Name: Capsule (5)
-  m_TagString: Enemy
+  m_TagString: Mole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1491,11 +1485,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1929693496}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.091000006, y: 1.66, z: 0.1094}
-  m_LocalScale: {x: 0.05344736, y: 1, z: 0.0385208}
+  m_LocalPosition: {x: 13.23, y: -1.742, z: -0.007}
+  m_LocalScale: {x: 0.25, y: 0.86, z: 0.25}
   m_Children: []
-  m_Father: {fileID: 168959248}
-  m_RootOrder: 5
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1929693498
 MeshRenderer:
