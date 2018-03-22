@@ -256,7 +256,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 92566957}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1898127, y: 1.87, z: 13.33}
+  m_LocalPosition: {x: -2.19, y: 1.87, z: 11.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -449,7 +449,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1826571134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: -2.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -466,7 +466,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab5e18fad48555f4b828233aeb85df55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1612381421374910, guid: ddbb16bfe17954246a3897a372fabd14, type: 2}
-  spawnAmount: 5
+  enemyMelee: {fileID: 1612381421374910, guid: ddbb16bfe17954246a3897a372fabd14, type: 2}
+  enemyRange: {fileID: 1413235539070932, guid: 4409639546553ed48a89148fad47fe01, type: 2}
+  enemyMimic: {fileID: 1470639857839214, guid: c845eed54b500d04a9356fe06d66f36e, type: 2}
+  spawnAmountMelee: 3
+  spawnAmountRange: 2
+  spawnAmountMimic: 1
   target: {fileID: 92566957}
   spawnCall: 0
