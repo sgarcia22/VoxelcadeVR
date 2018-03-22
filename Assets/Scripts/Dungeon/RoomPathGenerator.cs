@@ -30,12 +30,9 @@ public class RoomPathGenerator : MonoBehaviour {
 	}
 
 	private IEnumerator waitForNodes () {
-		Debug.Log ("before loop");
 		while (RoomNodes.done < 27) {
 			yield return new WaitForSeconds (1);
-			Debug.Log (RoomNodes.done);
 		}
-		Debug.Log ("after loop");
 		createDungeonPath ();
 			yield return null;
 	}
@@ -52,7 +49,6 @@ public class RoomPathGenerator : MonoBehaviour {
 		while ((current = current.getRandomUnconnectedNeighbor (previousNodeID)) != null) {
 			previousNodeID = previous.getID ();
 
-			Debug.Log ("Current Node: " + current.getID () + " Previous Node: " + previous.getID ());
 			if (previous.connectTwoNeighbors (current)) {
 				current.connectTwoNeighbors (previous);
 
@@ -61,7 +57,6 @@ public class RoomPathGenerator : MonoBehaviour {
 
 				previous = current;
 			} else {
-				Debug.Log ("Node: " + previous.getID () + " and Node: " + current.getID () + " where not added to path");
 				break;
 			}
 		}
@@ -88,7 +83,6 @@ public class RoomPathGenerator : MonoBehaviour {
 						inPath.Add (RN);
 
 					} else {
-						Debug.Log ("Node: " + choice.getID () + " was not added to path");
 						break;
 					}
 				}
