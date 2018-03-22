@@ -4,9 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Door
   - Enemy
   - LeftHand
   - RightHand
+  - GameManager
+  - Mole
   layers:
   - Default
   - TransparentFX
