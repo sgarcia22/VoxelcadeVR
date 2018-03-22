@@ -55,7 +55,6 @@ public class RoomNodes : MonoBehaviour {
 			enableCorridor (newConnect.getID ()); // activates gameobject
 			inPath = true;
 			newConnect.setInPath ();
-			Debug.Log (ID + " : " + newConnect.getID ());
 			return true;
 		} 
 
@@ -89,11 +88,9 @@ public class RoomNodes : MonoBehaviour {
 			int i = Random.Range (0, unconnectedNeighbors.Count);
 			int j = i;
 			while ((r = (RoomNodes)unconnectedNeighbors [i]).isInPath () || ((fromID % RoomPathGenerator.LEVELS) == (r.getID () % RoomPathGenerator.LEVELS)) || diagonalRoomConnected (r)) {
-				Debug.Log ("Previous: " + fromID + " New: " + r.getID ());
 				i = (i + 1) % unconnectedNeighbors.Count;
 
 				if (j == i) {
-					Debug.Log ("No Good Neighbors!");
 					return null;
 				}
 			}
@@ -154,7 +151,6 @@ public class RoomNodes : MonoBehaviour {
 	}
 
 	private void enableCorridor (int toLevel) {
-		Debug.Log (toLevel);
 		relation.enableConnector (this.ID, toLevel);
 	}
 }

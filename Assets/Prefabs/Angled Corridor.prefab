@@ -88,6 +88,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4003042872711540}
+  - component: {fileID: 65740707899432726}
+  - component: {fileID: 65359034849111102}
   m_Layer: 0
   m_Name: Angled Corridor
   m_TagString: Untagged
@@ -1195,6 +1197,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 0.049999997, z: 0.9}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65359034849111102
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332266093105632}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.046137333, z: 0.16571803}
+  m_Center: {x: 2.3335392e-14, y: -0.3596233, z: -6.357916}
 --- !u!65 &65664699156494724
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1207,6 +1221,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 0.049999997, z: 0.9}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65740707899432726
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332266093105632}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.06598508, z: 0.24377984}
+  m_Center: {x: -8.849868e-16, y: 0.88868624, z: 0.93772435}
 --- !u!65 &65741254280978738
 BoxCollider:
   m_ObjectHideFlags: 1
