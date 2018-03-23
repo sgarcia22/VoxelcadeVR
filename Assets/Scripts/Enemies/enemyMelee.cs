@@ -67,7 +67,7 @@ public class enemyMelee : MonoBehaviour {
 	{
 	    //If the player is within a certain distance move towards them
 		//Eventually this will just be on room enter.
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 10.0)
+		if(Vector3.Distance(this.transform.position,target.transform.position) < 2.0)
 		{
 			state = enemyMelee.State.CHASE;
 		}
@@ -80,7 +80,7 @@ public class enemyMelee : MonoBehaviour {
 		agent.SetDestination(target.transform.position);
 
 		//When the enemy is close enough, attack the player
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 2.0)
+		if(Vector3.Distance(this.transform.position,target.transform.position) <1.0)
 		{
 			state = enemyMelee.State.ATTACK;
 		}
@@ -93,12 +93,12 @@ public class enemyMelee : MonoBehaviour {
 		agent.SetDestination(target.transform.position);
 		
 		//Needs some cleaning
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 2.0)
+		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.0)
 		{
 			agent.SetDestination(this.transform.position);
 		}
 		//If the player starts moving away, chase them
-		if(Vector3.Distance(this.transform.position,target.transform.position) > 2.0)
+		if(Vector3.Distance(this.transform.position,target.transform.position) > 1.0)
 		{
 			state = enemyMelee.State.CHASE;
 		}

@@ -72,7 +72,7 @@ public class enemyMimic : MonoBehaviour {
 	    //If the player is within a certain distance move towards them
 		//Eventually this will just be on room enter.
 
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 8.0)
+		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.0)
 		{
 			if(!soundSource.isPlaying)
 			{
@@ -81,7 +81,7 @@ public class enemyMimic : MonoBehaviour {
 			}
 		}
 
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 6.0)
+		if(Vector3.Distance(this.transform.position,target.transform.position) < 2.5)
 		{
 			state = enemyMimic.State.CHASE;
 		}

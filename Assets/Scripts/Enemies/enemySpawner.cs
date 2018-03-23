@@ -38,7 +38,7 @@ public class enemySpawner : MonoBehaviour {
 		{
 
         	Instantiate (enemyMelee, position, target.transform.rotation);
-			position[1] -= 2.0f;
+			position[0] -= 0.5f;
 		}
 
 		position[0] = 0.0f;
