@@ -12,6 +12,7 @@ TagManager:
   - GameManager
   - Mole
   - Floor
+  - Map
   layers:
   - Default
   - TransparentFX
