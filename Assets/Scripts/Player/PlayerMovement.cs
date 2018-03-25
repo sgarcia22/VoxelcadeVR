@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour {
 
 	public GameObject player;
-	private Rigidbody rigidbody;
 	private GameObject rightHand;
 	private GameObject leftHand;
 	private GameObject camera;
@@ -19,7 +18,6 @@ public class PlayerMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//player = GameObject.FindGameObjectWithTag ("Player");
-		rigidbody = player.GetComponent<Rigidbody> ();
 		rightHand = GameObject.FindGameObjectWithTag ("RightHand");
 		leftHand = GameObject.FindGameObjectWithTag ("LeftHand");
 		camera = GameObject.FindGameObjectWithTag ("MainCamera");
