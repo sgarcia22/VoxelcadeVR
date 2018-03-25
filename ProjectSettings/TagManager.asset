@@ -11,6 +11,7 @@ TagManager:
   - RightHand
   - GameManager
   - Mole
+  - Map
   layers:
   - Default
   - TransparentFX

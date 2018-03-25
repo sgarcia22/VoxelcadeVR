@@ -30,6 +30,11 @@ public class HandControls : MonoBehaviour {
 	}
 
 	void OnCollisionEnter (Collision col) {
+
+		if (col.collider.tag == "Player") {
+			Physics.IgnoreCollision (col.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
+		}
+
 		///TODO: Left Hand not doing it correctly all of the times
 		if (col.collider.tag == "Enemy" || col.collider.tag == "Mole") {
 			//Left Hand

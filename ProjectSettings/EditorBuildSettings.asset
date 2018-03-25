@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/main.unity
-    guid: f37e5a598502bc54cafa73de634b899f
+    path: Assets/Dungeon.unity
+    guid: b5d15f251d7326845a64996cdde939da
   - enabled: 1
     path: Assets/WackAMole.unity
     guid: 7a4d60dbe52900f44ac0dd66e976147c
