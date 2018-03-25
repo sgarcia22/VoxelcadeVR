@@ -8,8 +8,6 @@ public class RoomPathGenerator : MonoBehaviour {
 
 	[SerializeField]
 	private NeighborMap map;
-	[SerializeField]
-	private BossDoorSelectino BDS;
 	private int previousNodeID;
 	private ArrayList notInPath;
 	private ArrayList inPath;
@@ -37,8 +35,6 @@ public class RoomPathGenerator : MonoBehaviour {
 		}
 		createDungeonPath ();
 			yield return null;
-
-		BDS.pickDoor ();
 	}
 
 	private void createDungeonPath () {

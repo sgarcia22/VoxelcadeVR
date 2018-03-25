@@ -9,8 +9,6 @@ public class CameraFollowPlayer : MonoBehaviour {
 	private Transform player;
 	[SerializeField]
 	private Text text;
-	[SerializeField]
-	private GameObject bossDoorIcon;
 	private float distance;
 	private float oldYRot;
 	private Vector3 oldPos;
@@ -19,7 +17,6 @@ public class CameraFollowPlayer : MonoBehaviour {
 		oldYRot = player.eulerAngles.y;
 		oldPos = player.transform.position;
 		distance = (player.position - transform.position).magnitude;
-		bossDoorIcon.SetActive (false);
 
 		if (oldPos.y < 1) {
 			text.text = "1";
@@ -56,18 +53,5 @@ public class CameraFollowPlayer : MonoBehaviour {
 		} else {
 			text.text = "3";
 		}
-	}
-
-	private void activateDoorIcon (Vector3 position) {
-		bossDoorIcon.SetActive (true);
-		bossDoorIcon.transform.position = position;
-	}
-
-	void OnEnable () {
-		FoundBossDoor.found += activateDoorIcon;
-	}
-
-	void OnDisable () {
-		FoundBossDoor.found -= activateDoorIcon;
 	}
 }
