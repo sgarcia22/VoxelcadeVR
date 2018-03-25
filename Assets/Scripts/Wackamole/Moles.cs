@@ -17,7 +17,7 @@ public class Moles : MonoBehaviour {
 	public float handSpeed = 0.5f;
 	private float timeToGoDown = 1f;
 	private float currentTime = 0f;
-	private float distance = .8f;
+	private float distance = .95f;
 	private float moleSpeed = 2f;
 	private bool activated = false;
 	private bool moving = false;

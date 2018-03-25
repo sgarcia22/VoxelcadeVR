@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GroundMoles : MonoBehaviour {
 
@@ -15,6 +17,8 @@ public class GroundMoles : MonoBehaviour {
 	float random;
 	private float totalTime;
 	public float maxTime = 60f;
+	public float molesHit = 0;
+	public Text final;
 
 	void Start () {
 		currentMoles = 0;
@@ -28,28 +32,31 @@ public class GroundMoles : MonoBehaviour {
 
 		//End the boss fight
 		if (totalTime >= maxTime) {
-			return;
+			final.text = "Score: " + molesHit + "\nPress Any Button to Restart.\n";
+			if (OVRInput.Get (OVRInput.Button.One) || OVRInput.Get (OVRInput.Button.Two) || OVRInput.Get (OVRInput.Button.Three) || OVRInput.Get (OVRInput.Button.Four))
+				SceneManager.LoadScene (0);
 		}
-			
-		if (currentMoles <= maxMoles && !gotMoleIndex) {
-			random = Random.Range (0, 10);
-			if (random <= currentTime) {
-				int getMole = GetMole ();
-				if (gotMoleIndex) {
-					trackingMoles.Add (getMole);
-					ActivateMole (getMole);
-					gotMoleIndex = false;
+		else {	
+			if (currentMoles <= maxMoles && !gotMoleIndex) {
+				random = Random.Range (0, 10);
+				if (random <= currentTime) {
+					int getMole = GetMole ();
+					if (gotMoleIndex) {
+						trackingMoles.Add (getMole);
+						ActivateMole (getMole);
+						gotMoleIndex = false;
+					}
 				}
 			}
+			//Keep track of the time
+			currentTime += Time.deltaTime;
+			totalTime += Time.deltaTime;
+			if (trackingMoles.Count > 10) {
+				//Pop the front value
+				trackingMoles.RemoveAt (0);
+			}
+			//Debug.Log (molesSurfaced.Count);
 		}
-		//Keep track of the time
-		currentTime += Time.deltaTime;
-		totalTime += Time.deltaTime;
-		if (trackingMoles.Count > 10) {
-			//Pop the front value
-			trackingMoles.RemoveAt (0);
-		}
-		//Debug.Log (molesSurfaced.Count);
 	}
 
 	//Activate a mole to send it upwards
