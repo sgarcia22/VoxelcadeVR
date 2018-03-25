@@ -11,6 +11,7 @@ TagManager:
   - RightHand
   - GameManager
   - Mole
+  - Floor
   layers:
   - Default
   - TransparentFX

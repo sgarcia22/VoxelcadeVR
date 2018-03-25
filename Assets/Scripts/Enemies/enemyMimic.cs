@@ -24,7 +24,7 @@ public class enemyMimic : MonoBehaviour {
 	//Damage
 	public int damage = 10;
 	//Speed
-	public float speed = 3.0f;
+	public float speed = 0.5f;
 	//Health
 	public int health = 100;
 
@@ -40,7 +40,7 @@ public class enemyMimic : MonoBehaviour {
 		target = GameObject.FindGameObjectWithTag("Player");
 		agent = GetComponent<NavMeshAgent>();
 		state = enemyMimic.State.IDLE;
-		rend = GetComponent<Renderer>();
+		//rend = GetComponent<Renderer>();
 		//soundSource.clip = soundEffect;
 		soundSource = GetComponent<AudioSource>();
 		//rend.material.color = Color.green; 
@@ -72,7 +72,7 @@ public class enemyMimic : MonoBehaviour {
 	    //If the player is within a certain distance move towards them
 		//Eventually this will just be on room enter.
 
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.0)
+		if(Vector3.Distance(this.transform.position,target.transform.position) < 3.0)
 		{
 			if(!soundSource.isPlaying)
 			{
@@ -81,7 +81,7 @@ public class enemyMimic : MonoBehaviour {
 			}
 		}
 
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 2.5)
+		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.5)
 		{
 			state = enemyMimic.State.CHASE;
 		}
@@ -91,14 +91,14 @@ public class enemyMimic : MonoBehaviour {
 	{
 		//Visual Update
 		lookAtProcedure();
-		rend.material.color = Color.blue;  //Used only for visualization of state changes
+		//rend.material.color = Color.blue;  //Used only for visualization of state changes
 
 		//Movement Update
 		agent.speed = speed;
 		agent.SetDestination(target.transform.position);
 
 		//When the enemy is close enough, attack the player
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 2.0)
+		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.0)
 		{
 			state = enemyMimic.State.ATTACK;
 		}
@@ -109,18 +109,18 @@ public class enemyMimic : MonoBehaviour {
 	{
 		//Visual Update
 		lookAtProcedure();
-		rend.material.color = Color.red; //Used only for visualization of state changes
+		//rend.material.color = Color.red; //Used only for visualization of state changes
 		
 		//Movement Update
 		agent.SetDestination(target.transform.position);
 		
 		//Needs some cleaning
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 2.0)
+		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.0)
 		{
 			agent.SetDestination(this.transform.position);
 		}
 		//If the player starts moving away, chase them
-		if(Vector3.Distance(this.transform.position,target.transform.position) > 2.0)
+		if(Vector3.Distance(this.transform.position,target.transform.position) > 1.0)
 		{
 			state = enemyMimic.State.CHASE;
 		}
@@ -131,12 +131,13 @@ public class enemyMimic : MonoBehaviour {
 	{
 		//Basic Enemy Following
 		//Enemy will always follow the player based on the Players position.
-		Vector3 lookAtVector = new Vector3(target.transform.position.x, lookAtHeight, 0.0f);
+		Vector3 lookAtVector = new Vector3(target.transform.position.x, target.transform.position.y, 0.0f);
 		//Check to see if the player is in a certain range to set the correct Z value
 		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.0 )
 		{
 			//Set the Z value to zero to avoid flipping.
-		    lookAtVector[2] = 0.0f;
+		    //lookAtVector[2] = 0.0f;
+			lookAtVector[2] = 0.0f;
 		}	
 		else
 		{

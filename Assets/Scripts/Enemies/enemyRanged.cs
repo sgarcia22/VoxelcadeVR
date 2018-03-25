@@ -67,7 +67,7 @@ public class enemyRanged : MonoBehaviour {
 	{
 	    //If the player is within a certain distance move towards them
 		//Eventually this will just be on room enter.
-		this.transform.GetChild(0).GetComponent<enemyRangeLook>().updateMaterial(0);
+		//this.transform.GetChild(0).GetComponent<enemyRangeLook>().updateMaterial(0);
 		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.5)
 		{
 			state = enemyRanged.State.CHASE;
@@ -78,14 +78,14 @@ public class enemyRanged : MonoBehaviour {
 	void Chase()
 	{
 		//Visual changes
-		this.transform.GetChild(0).GetComponent<enemyRangeLook>().updateMaterial(1);
+		//this.transform.GetChild(0).GetComponent<enemyRangeLook>().updateMaterial(1);
 
 		//Movement changes
 		agent.speed = speed;
 		agent.SetDestination(target.transform.position);
 
 		//When the enemy is close enough, attack the player
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 0.8)
+		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.2)
 		{
 			state = enemyRanged.State.ATTACK;
 		}
@@ -95,21 +95,21 @@ public class enemyRanged : MonoBehaviour {
 	void Attack()
 	{
 		//Visual changes
-		this.transform.GetChild(0).GetComponent<enemyRangeLook>().updateMaterial(2);
+		//this.transform.GetChild(0).GetComponent<enemyRangeLook>().updateMaterial(2);
 		
 		//Movement changes
-		agent.SetDestination(target.transform.position);
-		this.transform.GetChild(0).GetComponent<projectile>().attack();
+		//agent.SetDestination(target.transform.position);
 
 		//Needs some cleaning
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 0.8)
+		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.2)
 		{
 			agent.SetDestination(this.transform.position);
+			this.transform.GetChild(0).GetComponent<projectile>().attack();
 		}
 		//If the player starts moving away, chase them
-		if(Vector3.Distance(this.transform.position,target.transform.position) > 0.8)
+		if(Vector3.Distance(this.transform.position,target.transform.position) > 1.2)
 		{
-			state =enemyRanged.State.CHASE;
+			state = enemyRanged.State.CHASE;
 		}
 	}
 
