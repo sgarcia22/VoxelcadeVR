@@ -9,7 +9,7 @@ public class RoomPathGenerator : MonoBehaviour {
 	[SerializeField]
 	private NeighborMap map;
 	[SerializeField]
-	private BossDoorSelectino BDS;
+	private BossDoorSelection BDS;
 	private int previousNodeID;
 	private ArrayList notInPath;
 	private ArrayList inPath;
