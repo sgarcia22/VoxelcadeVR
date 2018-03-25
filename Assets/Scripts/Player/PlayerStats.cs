@@ -15,7 +15,7 @@ public class PlayerStats : MonoBehaviour {
 
 	void Start () {
 		level = 0;
-		slider.value = 1;
+		slider.value = (health / maxHealth);
 	}
 
 	public void updateHealth (float amount) {

@@ -7,9 +7,9 @@ public class enemyMelee : MonoBehaviour {
 
 	//Game Engine Variables
 	public GameObject target;	 //Current target, the Player
-	float lookAtHeight = 1.3f;   //Height use for the enemy look at
+	float lookAtHeight;   //Height use for the enemy look at
 	public NavMeshAgent agent;   //Tells the Enemy where to go on
-	public Renderer rend;		 //For accessing material color for now
+	//public Renderer rend;		 //For accessing material color for now
 
 	//Enemy State Machine
 	public enum State
@@ -22,9 +22,11 @@ public class enemyMelee : MonoBehaviour {
 
 	//Enemy Variables
 	//Damage
-	public int damage = 10;
+	public float damage = 10.0f;
+	public float shotForce = 0.05f; //Force of the shot
+	public float fireRate = 0.0f;  //The rate  of fire for ranged enemies
 	//Speed
-	public float speed = 3.0f;
+	public float speed = 0.8f;
 	//Health
 	public int health = 100;
 	
@@ -34,10 +36,11 @@ public class enemyMelee : MonoBehaviour {
 
 		//Find the player object
 		target = GameObject.FindGameObjectWithTag("Player");
+		lookAtHeight = target.transform.position[1];
 		agent = GetComponent<NavMeshAgent>();
 		state = enemyMelee.State.IDLE;
-		rend = GetComponent<Renderer>();
-		rend.material.color = Color.green; 
+		//rend = GetComponent<Renderer>();
+		//rend.material.color = Color.green; 
 
 	}
 	
@@ -67,20 +70,24 @@ public class enemyMelee : MonoBehaviour {
 	{
 	    //If the player is within a certain distance move towards them
 		//Eventually this will just be on room enter.
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 10.0)
+		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.0)
 		{
 			state = enemyMelee.State.CHASE;
+		}
+		else
+		{
+			agent.SetDestination(this.transform.position);
 		}
 	}
 	//Chase
 	void Chase()
 	{
-		rend.material.color = Color.blue;  //Used only for visualization of state changes
+		//rend.material.color = Color.blue;  //Used only for visualization of state changes
 		agent.speed = speed;
 		agent.SetDestination(target.transform.position);
 
 		//When the enemy is close enough, attack the player
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 2.0)
+		if(Vector3.Distance(this.transform.position,target.transform.position) <0.5)
 		{
 			state = enemyMelee.State.ATTACK;
 		}
@@ -89,16 +96,24 @@ public class enemyMelee : MonoBehaviour {
 	//Attack
 	void Attack()
 	{
-		rend.material.color = Color.red; //Used only for visualization of state changes
+		//rend.material.color = Color.red; //Used only for visualization of state changes
 		agent.SetDestination(target.transform.position);
 		
 		//Needs some cleaning
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 2.0)
+		if(Vector3.Distance(this.transform.position,target.transform.position) < 0.5)
 		{
 			agent.SetDestination(this.transform.position);
+			//Remove health
+			if(fireRate > 1.0f)
+			{
+				target.GetComponent<PlayerStats>().updateHealth(-1.0f*damage);
+				fireRate = 0.0f;
+			}
+			fireRate = fireRate + Time.deltaTime;
+
 		}
 		//If the player starts moving away, chase them
-		if(Vector3.Distance(this.transform.position,target.transform.position) > 2.0)
+		if(Vector3.Distance(this.transform.position,target.transform.position) > 0.5)
 		{
 			state = enemyMelee.State.CHASE;
 		}
@@ -109,9 +124,9 @@ public class enemyMelee : MonoBehaviour {
 	{
 		//Basic Enemy Following
 		//Enemy will always follow the player based on the Players position.
-		Vector3 lookAtVector = new Vector3(target.transform.position.x, lookAtHeight, 0.0f);
+		Vector3 lookAtVector = new Vector3(target.transform.position.x, target.transform.position.y, 0.0f);
 		//Check to see if the player is in a certain range to set the correct Z value
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.0 )
+		if(Vector3.Distance(this.transform.position,target.transform.position) < 0.5 )
 		{
 			//Set the Z value to zero to avoid flipping.
 		    lookAtVector[2] = 0.0f;
