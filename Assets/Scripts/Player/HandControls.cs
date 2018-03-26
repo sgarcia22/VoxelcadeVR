@@ -35,9 +35,10 @@ public class HandControls : MonoBehaviour {
 			//Left Hand
 			if (gameObject.name == "hand_left" && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) >= 0.25 && OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) >= 0.25 && hand.velocity.magnitude >= speed) {
 				if (col.collider.tag == "Mole") {
+					Debug.Log ("Destroy");
 					Moles mole = col.gameObject.GetComponent<Moles> ();
 					mole.state = Moles.State.GOING_DOWN;
-					molesScript.molesHit += 1;
+					//molesScript.molesHit += 1;
 					haptics.vibrate (true);
 				} else {
 					Destroy (col.gameObject);
@@ -51,10 +52,9 @@ public class HandControls : MonoBehaviour {
 				if (col.collider.tag == "Mole") {
 					Moles mole = col.gameObject.GetComponent<Moles>();
 					mole.state = Moles.State.GOING_DOWN;
-					molesScript.molesHit += 1;
+					//molesScript.molesHit += 1;
 					haptics.vibrate (false);
 				} else {
-					Debug.Log ("Destroy");
 					Destroy (col.gameObject);
 					haptics.vibrate (false);	
 				}
