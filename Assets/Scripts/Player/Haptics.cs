@@ -15,7 +15,7 @@ public class Haptics : MonoBehaviour {
 	}
 
 	public void vibrate (bool left) {
-		//Debug.Log ("Destroy");
+		Debug.Log ("Destroy");
 		if (left)
 			OVRHaptics.LeftChannel.Mix (new OVRHapticsClip (haptics, haptics.Length));
 		else

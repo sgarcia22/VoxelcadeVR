@@ -45,8 +45,7 @@ public class enemySpawner : MonoBehaviour {
 		{
 			filterSpawn = Random.Range(0,transform.childCount);
 
-			GameObject temp = Instantiate (enemyMelee, transform.GetChild(filterSpawn).position , target.transform.rotation, transform.parent);
-			temp.tag = "Enemy";
+        	Instantiate (enemyMelee, transform.GetChild(filterSpawn).position , target.transform.rotation, transform.parent);
 			//Instantiate (enemyMelee, transform.parent);
 			position[0] -= 0.5f;
 		}
@@ -61,8 +60,7 @@ public class enemySpawner : MonoBehaviour {
 		{
 			filterSpawn = Random.Range(0,transform.childCount);
 
-			GameObject temp = Instantiate (enemyMimic, transform.GetChild(filterSpawn).position , target.transform.rotation, transform.parent);
-			temp.tag = "Enemy";
+        	Instantiate (enemyMimic, transform.GetChild(filterSpawn).position , target.transform.rotation, transform.parent);
 			position[2] -= 2.0f;
 		}
 
@@ -75,8 +73,7 @@ public class enemySpawner : MonoBehaviour {
 		{
 			filterSpawn = Random.Range(0,transform.childCount);
 
-			GameObject temp = Instantiate (enemyRange, transform.GetChild(filterSpawn).position , target.transform.rotation, transform.parent);
-			temp.tag = "Enemy";
+        	Instantiate (enemyRange, transform.GetChild(filterSpawn).position , target.transform.rotation, transform.parent);
 			position[0] -= 2.0f;
 		}
 

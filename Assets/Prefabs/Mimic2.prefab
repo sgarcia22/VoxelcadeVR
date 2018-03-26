@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 195035309774301580}
   - component: {fileID: 82480278452744934}
   - component: {fileID: 114938597139005660}
-  - component: {fileID: 65815080606400018}
   m_Layer: 0
   m_Name: Mimic2
   m_TagString: Enemy
@@ -85,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1730004047056734}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.132926, y: 2.25, z: 1.535424}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children:
   - {fileID: 4786208080270184}
@@ -188,18 +187,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1385634589039970}
   m_Mesh: {fileID: 4300004, guid: cb07f2a9a1adf2448a336674ba010250, type: 3}
---- !u!65 &65815080606400018
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1730004047056734}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3529294, y: 2.3484595, z: 2.4781647}
-  m_Center: {x: -0.15037854, y: 0.67422944, z: 0.03608088}
 --- !u!82 &82480278452744934
 AudioSource:
   m_ObjectHideFlags: 1
@@ -255,7 +242,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -267,7 +254,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -279,7 +266,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
 --- !u!95 &95906570104390466
 Animator:
   serializedVersion: 3
