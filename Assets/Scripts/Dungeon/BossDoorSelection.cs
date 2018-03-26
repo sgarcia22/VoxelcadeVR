@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossDoorSelectino : MonoBehaviour {
+public class BossDoorSelection : MonoBehaviour {
 
 	[SerializeField]
 	private List <GameObject> doors;
