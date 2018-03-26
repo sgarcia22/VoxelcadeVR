@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Dungeon + Enemy Part 2.unity
+    guid: f7c81253f272a3f4c9af8a4c79edf52c
+  - enabled: 0
     path: Assets/Dungeon.unity
     guid: b5d15f251d7326845a64996cdde939da
   - enabled: 1

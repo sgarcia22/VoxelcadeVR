@@ -57,7 +57,4 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 
-	void OnCollisionEnter(Collision col) {
-		Debug.Log (col.gameObject.name);
-	}
 }

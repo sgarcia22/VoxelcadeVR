@@ -12,14 +12,14 @@ public class FoundBossDoor : MonoBehaviour {
 	private Transform playerPosition;
 
 	void Update () {
-		if (Vector3.Distance (playerPosition.position, transform.position) < 5f) {
-			found (new Vector3 (transform.position.x, 4f, transform.position.z));
+		if (Vector3.Distance (GameObject.FindGameObjectWithTag("Player").transform.position, transform.position) < 5f) {
+			//found (new Vector3 (transform.position.x, 4f, transform.position.z));
 		}
 	}
 
-	void onTriggerEnter (Collider c) {
+	void OnCollisionEnter (Collision col) {
 		Debug.Log ("Hit SomeThing");
-		if (c.tag.Equals ("Player")) {
+		if (col.collider.tag ==  "Player") {
 			Debug.Log ("Hit Player");
 			SceneManager.LoadScene ("WackAMole");
 		}

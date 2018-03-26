@@ -29,7 +29,7 @@ public class GroundMoles : MonoBehaviour {
 	}
 
 	void Update () {
-
+		
 		//End the boss fight
 		if (totalTime >= maxTime) {
 			final.text = "Score: " + molesHit + "\nPress Any Button to Restart.\n";
@@ -37,6 +37,7 @@ public class GroundMoles : MonoBehaviour {
 				SceneManager.LoadScene (0);
 		}
 		else {	
+			final.text = "Score: " + molesHit;
 			if (currentMoles <= maxMoles && !gotMoleIndex) {
 				random = Random.Range (0, 10);
 				if (random <= currentTime) {
