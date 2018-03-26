@@ -37,6 +37,7 @@ public class RoomPathGenerator : MonoBehaviour {
 		}
 		createDungeonPath ();
 			yield return null;
+		BDS.pickDoor ();
 	}
 
 	private void createDungeonPath () {
