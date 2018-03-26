@@ -38,7 +38,7 @@ public class HandControls : MonoBehaviour {
 					Debug.Log ("Destroy");
 					Moles mole = col.gameObject.GetComponent<Moles> ();
 					mole.state = Moles.State.GOING_DOWN;
-					//molesScript.molesHit += 1;
+					molesScript.molesHit += 1;
 					haptics.vibrate (true);
 				} else {
 					Destroy (col.gameObject);
@@ -52,7 +52,7 @@ public class HandControls : MonoBehaviour {
 				if (col.collider.tag == "Mole") {
 					Moles mole = col.gameObject.GetComponent<Moles>();
 					mole.state = Moles.State.GOING_DOWN;
-					//molesScript.molesHit += 1;
+					molesScript.molesHit += 1;
 					haptics.vibrate (false);
 				} else {
 					Destroy (col.gameObject);
