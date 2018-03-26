@@ -30,17 +30,19 @@ public class HandControls : MonoBehaviour {
 	}
 
 	void OnCollisionEnter (Collision col) {
+
+		if (col.collider.tag == "Player") {
+			Physics.IgnoreCollision (col.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
+		}
+
 		///TODO: Left Hand not doing it correctly all of the times
 		if (col.collider.tag == "Enemy" || col.collider.tag == "Mole") {
 			//Left Hand
 			if (gameObject.name == "hand_left" && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) >= 0.25 && OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) >= 0.25 && hand.velocity.magnitude >= speed) {
 				if (col.collider.tag == "Mole") {
-					Moles mole = col.gameObject.GetComponent<Moles> ();
+					Moles mole = col.gameObject.GetComponent<Moles>();
 					mole.state = Moles.State.GOING_DOWN;
 					molesScript.molesHit += 1;
-					haptics.vibrate (true);
-				} else {
-					Destroy (col.gameObject);
 					haptics.vibrate (true);
 				}
 				//Destroy the enemy
@@ -53,19 +55,10 @@ public class HandControls : MonoBehaviour {
 					mole.state = Moles.State.GOING_DOWN;
 					molesScript.molesHit += 1;
 					haptics.vibrate (false);
-				} else {
-					Debug.Log ("Destroy");
-					Destroy (col.gameObject);
-					haptics.vibrate (false);	
 				}
 				//Destroy the enemy
 				//Destroy (col.gameObject);
 			}
 		}
-
-		if (col.collider.tag == "Player") {
-			Physics.IgnoreCollision (col.gameObject.GetComponent<Collider>(), GetComponent<Collider>());
-		}
-
 	}
 }
