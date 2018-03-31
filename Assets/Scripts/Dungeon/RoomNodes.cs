@@ -43,7 +43,7 @@ public class RoomNodes : MonoBehaviour {
 
 	public void setInPath () {
 		if (possibleBossDoor != null) {
-			BossDoorSelection.addDoor (possibleBossDoor);
+			BossDoorSelection.addDoor (ID, possibleBossDoor);
 		}
 		inPath = true;
 	}

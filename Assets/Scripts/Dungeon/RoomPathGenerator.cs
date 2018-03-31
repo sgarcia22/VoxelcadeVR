@@ -10,6 +10,8 @@ public class RoomPathGenerator : MonoBehaviour {
 	private NeighborMap map;
 	[SerializeField]
 	private BossDoorSelection BDS;
+	[SerializeField]
+	private Transform player;
 	private int previousNodeID;
 	private ArrayList notInPath;
 	private ArrayList inPath;
@@ -37,7 +39,19 @@ public class RoomPathGenerator : MonoBehaviour {
 		}
 		createDungeonPath ();
 			yield return null;
-		BDS.pickDoor ();
+		int doorNode = BDS.pickDoor ();
+		pickPlayerPosition (doorNode);
+	}
+
+	private void pickPlayerPosition (int doorNode) {
+		int playerStart = Random.Range (0, inPath.Count);
+
+		while (((RoomNodes) inPath [playerStart]).getID () != doorNode) {
+			playerStart = Random.Range (0, inPath.Count);
+		}
+
+		player.position = ((RoomNodes)inPath [playerStart]).transform.position;
+		player.position += new Vector3 (0f, 0.25f, 0f);
 	}
 
 	private void createDungeonPath () {

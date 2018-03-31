@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class BossDoorSelection : MonoBehaviour {
 
-	private static List <GameObject> doors = new List<GameObject> ();
+	private static Dictionary <int, GameObject> doors = new Dictionary <int, GameObject> ();
 
-	public void pickDoor () {
-		GameObject door;
-		door = ((GameObject) doors [Random.Range (0, doors.Count)]);
-		door.SetActive (true);
+	public int pickDoor () {
+		int [] keys = new int[doors.Count];
+		doors.Keys.CopyTo (keys, 0);
+		int choice = Random.Range (0, keys.Length);
+		doors [keys [choice]].SetActive (true);
+		return choice;
 	}
 
-	public static void addDoor (GameObject door) {
-		doors.Add (door);
+	public static void addDoor (int ID, GameObject door) {
+		if (!doors.ContainsKey (ID)) {
+			doors.Add (ID, door);
+		}
 	}
 }

@@ -30,7 +30,7 @@ public class CameraFollowPlayer : MonoBehaviour {
 	}
 
 	void Update () {
-
+		/*
 		float currentYRot = player.eulerAngles.y;
 		float angle = currentYRot - oldYRot;
 		transform.RotateAround (player.position, Vector3.up, angle);
@@ -44,7 +44,7 @@ public class CameraFollowPlayer : MonoBehaviour {
 			oldPos = currentPos;
 
 		}
-
+		*/
 	}
 
 	void FixedUpdate () {
