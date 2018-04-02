@@ -12,8 +12,9 @@ public class FoundBossDoor : MonoBehaviour {
 	private Transform playerPosition;
 
 	void Update () {
-		if (Vector3.Distance (GameObject.FindGameObjectWithTag("Player").transform.position, transform.position) < 5f) {
-			//found (new Vector3 (transform.position.x, 4f, transform.position.z));
+		if (Vector3.Distance (playerPosition.position, transform.position) < 5f && Mathf.Abs (playerPosition.position.y - transform.position.y) < 0.5f) {
+			Debug.Log ("Found");
+			found (new Vector3 (transform.position.x, 4f, transform.position.z));
 		}
 	}
 

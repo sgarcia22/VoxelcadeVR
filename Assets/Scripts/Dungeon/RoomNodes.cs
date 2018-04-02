@@ -14,6 +14,8 @@ public class RoomNodes : MonoBehaviour {
 	private int ID;
 	[SerializeField]
 	private int[] neighbors;
+	[SerializeField]
+	private GameObject possibleBossDoor;
 	private ArrayList unconnectedNeighbors;
 	private ArrayList connectedNeighbors;
 	private bool inPath;
@@ -40,6 +42,9 @@ public class RoomNodes : MonoBehaviour {
 	}
 
 	public void setInPath () {
+		if (possibleBossDoor != null) {
+			BossDoorSelection.addDoor (ID, possibleBossDoor);
+		}
 		inPath = true;
 	}
 
