@@ -131,7 +131,7 @@ public class enemyMimic : MonoBehaviour {
 	{
 		//Basic Enemy Following
 		//Enemy will always follow the player based on the Players position.
-		Vector3 lookAtVector = new Vector3(target.transform.position.x, target.transform.position.y, 0.0f);
+		Vector3 lookAtVector = new Vector3(target.transform.position.x, this.transform.position.y, 0.0f);
 		//Check to see if the player is in a certain range to set the correct Z value
 		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.0 )
 		{
