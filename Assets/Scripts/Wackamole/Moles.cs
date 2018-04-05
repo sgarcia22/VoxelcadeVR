@@ -23,7 +23,7 @@ public class Moles : MonoBehaviour {
 	private bool moving = false;
 	private GameObject gameManager;
 	private GroundMoles manager;
-
+	public bool hit = false;
 	void Start () {
 		gameManager = GameObject.FindGameObjectWithTag ("GameManager");
 		manager = gameManager.GetComponent<GroundMoles> ();
@@ -72,6 +72,10 @@ public class Moles : MonoBehaviour {
 						}	
 					}
 					manager.currentMoles--;
+					if (!hit) {
+						hit = true;
+						manager.molesHit += 1;
+					}
 					state = State.DOWN;
 				}
 				if (moving){

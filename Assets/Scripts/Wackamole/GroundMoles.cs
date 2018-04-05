@@ -63,6 +63,7 @@ public class GroundMoles : MonoBehaviour {
 	//Activate a mole to send it upwards
 	private void ActivateMole(int index) {
 		moles [index].GetComponent<Moles> ().state = Moles.State.GOING_UP; 
+		moles [index].GetComponent<Moles> ().hit = true;
 		molesSurfaced.Add (moles [index]);
 		++currentMoles;
 		currentTime = 0;

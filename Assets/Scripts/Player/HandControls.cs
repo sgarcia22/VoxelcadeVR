@@ -33,12 +33,12 @@ public class HandControls : MonoBehaviour {
 		///TODO: Left Hand not doing it correctly all of the times
 		if (col.collider.tag == "Enemy" || col.collider.tag == "Mole") {
 			//Left Hand
-			if (gameObject.name == "hand_left" && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) >= 0.25 && OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) >= 0.25 && hand.velocity.magnitude >= speed) {
+			if (gameObject.name == "hand_left" && OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) >= 0.1 && OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) >= 0.1 && hand.velocity.magnitude >= speed) {
 				if (col.collider.tag == "Mole") {
 					Debug.Log ("Destroy");
 					Moles mole = col.gameObject.GetComponent<Moles> ();
 					mole.state = Moles.State.GOING_DOWN;
-					molesScript.molesHit += 1;
+					//molesScript.molesHit += 1;
 					haptics.vibrate (true);
 				} else {
 					Destroy (col.gameObject);
@@ -48,7 +48,7 @@ public class HandControls : MonoBehaviour {
 				//Destroy (col.gameObject);
 			}
 			//Right Hand
-			else if (gameObject.name == "hand_right" && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) >= 0.25 && OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) >= 0.25 && hand.velocity.magnitude >= speed) {
+			else if (gameObject.name == "hand_right" && OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) >= 0.1 && OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) >= 0.1 /*&& hand.velocity.magnitude >= speed*/) {
 				if (col.collider.tag == "Mole") {
 					Moles mole = col.gameObject.GetComponent<Moles>();
 					mole.state = Moles.State.GOING_DOWN;

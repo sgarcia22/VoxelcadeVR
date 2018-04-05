@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -39,11 +40,13 @@ public class PlayerMovement : MonoBehaviour {
 			pressMap = false;
 		//Movement
 		if (OVRInput.Get (OVRInput.Button.Two)) {
-			/*Vector3 temp = camera.transform.forward;
-			temp.y = 0f;
-			player.transform.position += temp * Time.deltaTime * speed;
-			*/
 			rb.MovePosition(player.transform.position + camera.transform.forward * Time.deltaTime * speed);
+		}
+		if (OVRInput.Get (OVRInput.Button.One)) {
+			rb.MovePosition(player.transform.position - camera.transform.forward * Time.deltaTime * speed / 2);
+		}
+		if (OVRInput.Get (OVRInput.Button.Start)) {
+			SceneManager.LoadScene (1);
 		}
 		if (OVRInput.Get (OVRInput.Button.Four) && !pressMap) {
 			if (map.activeSelf == false)
@@ -55,6 +58,4 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		currentTime += Time.deltaTime;
 	}
-
-
 }
