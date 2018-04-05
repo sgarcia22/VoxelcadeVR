@@ -85,8 +85,10 @@ public class Moles : MonoBehaviour {
 				break;
 			case State.UP:
 				break;
-			case State.DOWN:
-				break;
+		case State.DOWN:
+			if (GameObject.FindGameObjectWithTag ("Player").GetComponent<HandControls> ().temp == gameObject)
+				GameObject.FindGameObjectWithTag ("Player").GetComponent<HandControls> ().temp = null;
+			break;
 		}
 		currentTime += Time.deltaTime;
 	}

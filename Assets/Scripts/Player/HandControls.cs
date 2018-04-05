@@ -14,8 +14,10 @@ public class HandControls : MonoBehaviour {
 	public float speed = 0.5f;
 	private GroundMoles molesScript;
 	private Haptics haptics;
+	public GameObject temp;
 
 	void Start () {
+		temp = null;
 		hand = gameObject.GetComponent<Rigidbody> ();
 		goingFast = false;
 		previousPosition = gameObject.transform.position;
@@ -38,7 +40,12 @@ public class HandControls : MonoBehaviour {
 					Debug.Log ("Destroy");
 					Moles mole = col.gameObject.GetComponent<Moles> ();
 					mole.state = Moles.State.GOING_DOWN;
-					//molesScript.molesHit += 1;
+					if (col.gameObject != temp)
+						temp = null;
+					if (temp == null) {
+						molesScript.molesHit += 1;
+					}
+					temp = col.gameObject;
 					haptics.vibrate (true);
 				} else {
 					Destroy (col.gameObject);
@@ -52,7 +59,12 @@ public class HandControls : MonoBehaviour {
 				if (col.collider.tag == "Mole") {
 					Moles mole = col.gameObject.GetComponent<Moles>();
 					mole.state = Moles.State.GOING_DOWN;
-					molesScript.molesHit += 1;
+					if (col.gameObject != temp)
+						temp = null;
+					if (temp == null) {
+						molesScript.molesHit += 1;
+					}
+					temp = col.gameObject;
 					haptics.vibrate (false);
 				} else {
 					Destroy (col.gameObject);
