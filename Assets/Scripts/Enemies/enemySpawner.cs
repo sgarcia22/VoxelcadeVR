@@ -4,72 +4,79 @@ using UnityEngine;
 
 public class enemySpawner : MonoBehaviour {
 
-
+	//Prefabs
 	public GameObject enemyMelee;
 	public GameObject enemyRange;
 	public GameObject enemyMimic;
-	public int spawnAmountMelee = 3;
+	//Amount of each character spawned
+	public int spawnAmountMelee = 0;
 	public int spawnAmountRange = 0;
 	public int spawnAmountMimic = 0; 
-	public GameObject target;
-	public bool spawnCall = false;
-	public Vector3 position;
-	int filterSpawn;
+	//Max amount of each enemie at one time
+	public int maxEnemies = 6;
+	public int minEnemies= 2;
+	public GameObject target;	//Player target
+	public bool spawnCall = true; //Spawn has been called.
+	public int spawnTotal = 0; //Total spawnned monsters for spawn area
+	public int currTotal = 0; //Total spawnned monsters for spawn area
+	public int filterSpawn; //Spawns enemies in certain locations
+	public bool zoneCheck = true;
 
 
 	void Start()
 	{
 		target = GameObject.FindGameObjectWithTag("Player"); 
-		//Get the locations of the rooms
-		 position =  new Vector3(transform.position[0],
-							     transform.position[1],
-							     transform.position[2]);
-
 	}
 
 	void Update()
 	{
-		if(spawnCall == false)
+		if(spawnCall && Vector3.Distance(this.transform.position, target.transform.position) < 5 )
 		{
-				Spawn();
+			Debug.Log("SpawnCalled");
+			Spawn();
+		}
+		if(zoneCheck && Vector3.Distance(this.transform.position, target.transform.position) > 5)
+		{
+				checkPlayerAttack();
+				zoneCheck = false;
 		}
 	}
 
 
     void Spawn ()
     {
-		spawnCall = true;
-		//Vector3 position = new Vector3(0.0f, 1.3f, 0.0f);
-        // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
+		//Spawn in room once
+		spawnCall = false;
+       
+	   //Set enemy amount depending on player stats
+		spawnAmountMelee = Mathf.Min(maxEnemies, Mathf.Max(minEnemies,(int)(maxEnemies*target.GetComponent<playerModel>().returnTrait("meleeEnemyKills"))));
+		spawnAmountRange = Mathf.Min(maxEnemies, Mathf.Max(minEnemies,(int)(maxEnemies*target.GetComponent<playerModel>().returnTrait("rangeEnemyKills"))));
+		spawnAmountMimic = Mathf.Min(maxEnemies, Mathf.Max(minEnemies,(int)(maxEnemies*target.GetComponent<playerModel>().returnTrait("mimicEnemyKills"))));
+		
+		//DEBUG 
+		Debug.Log("Melee"+ target.GetComponent<playerModel>().returnTrait("meleeEnemyKills") );
+		Debug.Log("Range"+ target.GetComponent<playerModel>().returnTrait("rangeEnemyKills") );
+		Debug.Log("Mimic"+ target.GetComponent<playerModel>().returnTrait("mimicEnemyKills") );
+
+		spawnTotal = spawnAmountMelee + spawnAmountRange + spawnAmountMimic;
+	   	currTotal = spawnTotal;
+	    // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
 		for(int i = 0; i < spawnAmountMelee; i++)
 		{
 			filterSpawn = Random.Range(0,transform.childCount);
-
 			GameObject temp = Instantiate (enemyMelee, transform.GetChild(filterSpawn).position , target.transform.rotation, transform.parent);
 			temp.tag = "Enemy";
 			//Instantiate (enemyMelee, transform.parent);
-			position[0] -= 0.5f;
-		}
-
-		//Reset 
-		position[0] =  transform.transform.position[0];
-		position[1] =  transform.transform.position[1];	
-		position[2] =  transform.transform.position[2];					    
+		}				    
 
 		//Spawning mimic enemies
 		for(int i = 0; i < spawnAmountMimic; i++)
 		{
 			filterSpawn = Random.Range(0,transform.childCount);
-
 			GameObject temp = Instantiate (enemyMimic, transform.GetChild(filterSpawn).position , target.transform.rotation, transform.parent);
 			temp.tag = "Enemy";
-			position[2] -= 2.0f;
 		}
 
-				//Reset 
-		position[0] =  transform.transform.position[0];
-		position[1] =  transform.transform.position[1];	
-		position[2] =  transform.transform.position[2];	
 
 		for(int i = 0; i < spawnAmountRange; i++)
 		{
@@ -77,8 +84,24 @@ public class enemySpawner : MonoBehaviour {
 
 			GameObject temp = Instantiate (enemyRange, transform.GetChild(filterSpawn).position , target.transform.rotation, transform.parent);
 			temp.tag = "Enemy";
-			position[0] -= 2.0f;
 		}
 
     }
+
+	//Player check 
+	void checkPlayerAttack()
+	{
+		if(currTotal == 0)
+		{
+			//Good 
+			target.GetComponent<playerModel>().updateTrait("rangeEnemyKills", -0.5f);
+			target.GetComponent<playerModel>().updateTrait("meleeEnemyKills", -0.5f);
+		}
+		else 
+		{
+			//Weight them more so more enemies spawn
+			target.GetComponent<playerModel>().updateTrait("rangeEnemyKills", 1.0f);
+			target.GetComponent<playerModel>().updateTrait("meleeEnemyKills", 1.0f);
+		}
+	}
 }

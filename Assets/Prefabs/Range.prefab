@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 114156822477607692}
   - component: {fileID: 114987833199975616}
   - component: {fileID: 65400973090019232}
+  - component: {fileID: 114912375950452692}
   m_Layer: 0
   m_Name: Range
   m_TagString: Enemy
@@ -959,6 +960,17 @@ MonoBehaviour:
   shotPos: {fileID: 4701974442538742}
   shotForce: 400
   fireRate: 0
+--- !u!114 &114912375950452692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1413235539070932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa744ce804c861b49a96226b9572dd0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114987833199975616
 MonoBehaviour:
   m_ObjectHideFlags: 1

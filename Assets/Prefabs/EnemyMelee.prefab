@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 23753473597757672}
   - component: {fileID: 195932778381337588}
   - component: {fileID: 114887817518308970}
+  - component: {fileID: 114977317451714850}
   m_Layer: 0
   m_Name: EnemyMelee
   m_TagString: Enemy
@@ -631,6 +632,17 @@ MonoBehaviour:
   fireRate: 0
   speed: 0.8
   health: 100
+--- !u!114 &114977317451714850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1612381421374910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa744ce804c861b49a96226b9572dd0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &137208825205785312
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

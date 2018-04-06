@@ -13,6 +13,7 @@ TagManager:
   - Mole
   - Floor
   - Map
+  - Waypoint
   layers:
   - Default
   - TransparentFX

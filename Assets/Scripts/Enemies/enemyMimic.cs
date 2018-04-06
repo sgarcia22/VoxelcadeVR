@@ -31,6 +31,8 @@ public class enemyMimic : MonoBehaviour {
 	//Sounds
 	public AudioClip soundEffect;
 	public AudioSource soundSource;
+
+	public bool rotate;
 	
 
 	// Use this for initialization
@@ -43,6 +45,7 @@ public class enemyMimic : MonoBehaviour {
 		//rend = GetComponent<Renderer>();
 		//soundSource.clip = soundEffect;
 		soundSource = GetComponent<AudioSource>();
+		rotate = true;
 		//rend.material.color = Color.green; 
 
 	}
@@ -92,7 +95,6 @@ public class enemyMimic : MonoBehaviour {
 		//Visual Update
 		lookAtProcedure();
 		//rend.material.color = Color.blue;  //Used only for visualization of state changes
-
 		//Movement Update
 		agent.speed = speed;
 		agent.SetDestination(target.transform.position);
@@ -130,6 +132,11 @@ public class enemyMimic : MonoBehaviour {
 	void lookAtProcedure()
 	{
 		//Basic Enemy Following
+		if(rotate)
+		{
+			this.transform.Rotate(0, 90, 0);
+			rotate = false;
+		}
 		//Enemy will always follow the player based on the Players position.
 		Vector3 lookAtVector = new Vector3(target.transform.position.x, this.transform.position.y, 0.0f);
 		//Check to see if the player is in a certain range to set the correct Z value
@@ -137,7 +144,7 @@ public class enemyMimic : MonoBehaviour {
 		{
 			//Set the Z value to zero to avoid flipping.
 		    //lookAtVector[2] = 0.0f;
-			lookAtVector[2] = 0.0f;
+			lookAtVector[2] =  target.transform.position.z;
 		}	
 		else
 		{
@@ -146,6 +153,7 @@ public class enemyMimic : MonoBehaviour {
 		}
 		
 		this.transform.LookAt(lookAtVector);
+		this.transform.Rotate(0, 180, 0);
 
 	}
 
