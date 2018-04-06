@@ -21,12 +21,20 @@ public class PlayerStats : MonoBehaviour {
 	public void updateHealth (float amount) {
 		health += amount;
 
+		if (health > maxHealth) {
+			health = maxHealth;
+		}
+
 		slider.value = (health / maxHealth);
 
 		if (health <= 0) {
 			slider.fillRect.gameObject.SetActive (false);
 			//cause game reset
 		}
+	}
+
+	public void addToMaxHealth (float amount) {
+		maxHealth += amount;
 	}
 
 	public float getHealth () {
