@@ -15,6 +15,7 @@ TagManager:
   - Map
   - RightHammer
   - LeftHammer
+  - Waypoint
   layers:
   - Default
   - TransparentFX
