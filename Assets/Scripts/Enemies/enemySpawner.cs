@@ -14,7 +14,7 @@ public class enemySpawner : MonoBehaviour {
 	public int spawnAmountMimic = 0; 
 	//Max amount of each enemie at one time
 	public int maxEnemies = 6;
-	public int minEnemies= 2;
+	public int minEnemies= 1;
 	public GameObject target;	//Player target
 	public bool spawnCall = true; //Spawn has been called.
 	public int spawnTotal = 0; //Total spawnned monsters for spawn area
@@ -51,8 +51,8 @@ public class enemySpawner : MonoBehaviour {
 	   //Set enemy amount depending on player stats
 		spawnAmountMelee = Mathf.Min(maxEnemies, Mathf.Max(minEnemies,(int)(maxEnemies*target.GetComponent<playerModel>().returnTrait("meleeEnemyKills"))));
 		spawnAmountRange = Mathf.Min(maxEnemies, Mathf.Max(minEnemies,(int)(maxEnemies*target.GetComponent<playerModel>().returnTrait("rangeEnemyKills"))));
-		spawnAmountMimic = Mathf.Min(maxEnemies, Mathf.Max(minEnemies,(int)(maxEnemies*target.GetComponent<playerModel>().returnTrait("mimicEnemyKills"))));
-		
+		//spawnAmountMimic = Mathf.Min(maxEnemies, Mathf.Max(minEnemies,(int)(maxEnemies*target.GetComponent<playerModel>().returnTrait("mimicEnemyKills"))));
+		spawnAmountMimic =  Random.Range(0,3);
 		//DEBUG 
 		//Debug.Log("Melee"+ target.GetComponent<playerModel>().returnTrait("meleeEnemyKills") );
 		//Debug.Log("Range"+ target.GetComponent<playerModel>().returnTrait("rangeEnemyKills") );

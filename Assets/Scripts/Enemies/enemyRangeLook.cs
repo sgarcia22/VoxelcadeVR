@@ -7,6 +7,7 @@ public class enemyRangeLook : MonoBehaviour {
 
 	public GameObject target;	 //Current target, the Player
 	float lookAtHeight = 1.3f;   //Height use for the enemy look at
+	bool lookAt = false;
 	//public Renderer rend;		 //For accessing material color for now
 	
 
@@ -21,7 +22,10 @@ public class enemyRangeLook : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		lookAtProcedure();
+		if(lookAt)
+		{
+			lookAtProcedure();
+		}
 	}
 	//METHODS
 
@@ -31,18 +35,14 @@ public class enemyRangeLook : MonoBehaviour {
 		//Use this for animation switching
 	public void updateMaterial( int state)
 	{
-		/*if(state == 0)
+		if(state == 1)
 		{
-			rend.material.color = Color.green; 
+			lookAt = true; 
 		}
-		else if (state == 1)
+		else 
 		{
-			rend.material.color = Color.blue; 
+			lookAt = false;
 		}
-		else if (state == 2)
-		{
-			rend.material.color = Color.red; 
-		}*/
 
 	}
 

@@ -77,7 +77,7 @@ public class enemyRanged : MonoBehaviour {
 	{
 	    //If the player is within a certain distance move towards them
 		//Eventually this will just be on room enter.
-		//this.transform.GetChild(0).GetComponent<enemyRangeLook>().updateMaterial(0);
+		this.transform.GetChild(0).GetComponent<enemyRangeLook>().updateMaterial(0);
 		//if(Vector3.Distance(this.transform.position,target.transform.position) < 1.5)
 		//{
 			//state = enemyRanged.State.CHASE;
@@ -101,7 +101,7 @@ public class enemyRanged : MonoBehaviour {
 	void Chase()
 	{
 		//Visual changes
-		//this.transform.GetChild(0).GetComponent<enemyRangeLook>().updateMaterial(1);
+		this.transform.GetChild(0).GetComponent<enemyRangeLook>().updateMaterial(1);
 
 		//Movement changes
 		agent.speed = speed;
@@ -118,7 +118,7 @@ public class enemyRanged : MonoBehaviour {
 	void Attack()
 	{
 		//Visual changes
-		//this.transform.GetChild(0).GetComponent<enemyRangeLook>().updateMaterial(2);
+		this.transform.GetChild(0).GetComponent<enemyRangeLook>().updateMaterial(1);
 		
 		//Movement changes
 		//agent.SetDestination(target.transform.position);
