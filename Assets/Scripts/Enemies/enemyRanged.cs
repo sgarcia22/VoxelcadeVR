@@ -11,6 +11,9 @@ public class enemyRanged : MonoBehaviour {
 	public NavMeshAgent agent;   //Tells the Enemy where to go on
 	public Renderer rend;		 //For accessing material color for now
 
+	public Transform patrolPosition; //Adding in enemy movement
+	public enemyWaypoint enemyWaypoint;
+
 	//Enemy State Machine
 	public enum State
 	{
@@ -24,11 +27,18 @@ public class enemyRanged : MonoBehaviour {
 	//Damage
 	public int damage = 10;
 	//Speed
-	public float speed = 3.0f;
+	public float speed = 2.0f;
+	public float speedIdle = 0.5f;
 	//Health
 	public int health = 100;
 	
 
+
+	void Awake()
+	{
+		enemyWaypoint = gameObject.transform.parent.GetChild(0).GetComponent<enemyWaypoint>();
+		patrolPosition = enemyWaypoint.nextWaypoint();
+	}
 	// Use this for initialization
 	void Start () {
 
@@ -68,9 +78,22 @@ public class enemyRanged : MonoBehaviour {
 	    //If the player is within a certain distance move towards them
 		//Eventually this will just be on room enter.
 		//this.transform.GetChild(0).GetComponent<enemyRangeLook>().updateMaterial(0);
+		//if(Vector3.Distance(this.transform.position,target.transform.position) < 1.5)
+		//{
+			//state = enemyRanged.State.CHASE;
+		//}
+		agent.speed = speedIdle;
 		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.5)
 		{
-			state = enemyRanged.State.CHASE;
+			state =enemyRanged.State.CHASE;
+		}
+		else if(Vector3.Distance(this.transform.position, this.patrolPosition.position )>= 0.5)
+		{
+			agent.SetDestination(patrolPosition.position);
+		}
+		else if (Vector3.Distance(this.transform.position, this.patrolPosition.position ) < 0.5)
+		{
+			patrolPosition = enemyWaypoint.nextWaypoint();
 		}
 
 	}

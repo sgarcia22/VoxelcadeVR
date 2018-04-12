@@ -9,7 +9,9 @@ public class enemyMelee : MonoBehaviour {
 	public GameObject target;	 //Current target, the Player
 	float lookAtHeight;   //Height use for the enemy look at
 	public NavMeshAgent agent;   //Tells the Enemy where to go on
-	//public Renderer rend;		 //For accessing material color for now
+
+	public Transform patrolPosition; //Adding in enemy movement
+	public enemyWaypoint enemyWaypoint;
 
 	//Enemy State Machine
 	public enum State
@@ -27,9 +29,17 @@ public class enemyMelee : MonoBehaviour {
 	public float fireRate = 0.0f;  //The rate  of fire for ranged enemies
 	//Speed
 	public float speed = 0.8f;
+	public float speedIdle = 0.5f;
 	//Health
 	public int health = 100;
 	
+
+	//void
+	void Awake()
+	{
+		enemyWaypoint = gameObject.transform.parent.GetChild(0).GetComponent<enemyWaypoint>();
+		patrolPosition = enemyWaypoint.nextWaypoint();
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -39,6 +49,8 @@ public class enemyMelee : MonoBehaviour {
 		lookAtHeight = target.transform.position[1];
 		agent = GetComponent<NavMeshAgent>();
 		state = enemyMelee.State.IDLE;
+		//enemyWaypoint = gameObject.transform.parent.GetChild(0).GetComponent<enemyWaypoint>();
+		//patrolPosition = enemyWaypoint.nextWaypoint();
 		//rend = GetComponent<Renderer>();
 		//rend.material.color = Color.green; 
 
@@ -47,8 +59,7 @@ public class enemyMelee : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		lookAtProcedure();
-
+		
 		switch(state)
 		{
 			case State.IDLE:
@@ -70,18 +81,35 @@ public class enemyMelee : MonoBehaviour {
 	{
 	    //If the player is within a certain distance move towards them
 		//Eventually this will just be on room enter.
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.0)
+		/*if(Vector3.Distance(this.transform.position,target.transform.position) < 1.0)
 		{
 			state = enemyMelee.State.CHASE;
 		}
 		else
 		{
 			agent.SetDestination(this.transform.position);
+		}*/
+		agent.speed = speedIdle;
+
+		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.0)
+		{
+			state = enemyMelee.State.CHASE;
 		}
+		else if(Vector3.Distance(this.transform.position, this.patrolPosition.position )>= 0.5)
+		{
+			agent.SetDestination(patrolPosition.position);
+		}
+		else if (Vector3.Distance(this.transform.position, this.patrolPosition.position ) < 0.5)
+		{
+			patrolPosition = enemyWaypoint.nextWaypoint();
+		}
+
+
 	}
 	//Chase
 	void Chase()
 	{
+		lookAtProcedure();
 		//rend.material.color = Color.blue;  //Used only for visualization of state changes
 		agent.speed = speed;
 		agent.SetDestination(target.transform.position);
@@ -96,6 +124,7 @@ public class enemyMelee : MonoBehaviour {
 	//Attack
 	void Attack()
 	{
+		lookAtProcedure();
 		//rend.material.color = Color.red; //Used only for visualization of state changes
 		agent.SetDestination(target.transform.position);
 		
@@ -139,6 +168,11 @@ public class enemyMelee : MonoBehaviour {
 		
 		this.transform.LookAt(lookAtVector);
 
+	}
+
+	public void setPosition()
+	{
+		patrolPosition = enemyWaypoint.nextWaypoint();
 	}
 
 

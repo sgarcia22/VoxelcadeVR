@@ -54,9 +54,9 @@ public class enemySpawner : MonoBehaviour {
 		spawnAmountMimic = Mathf.Min(maxEnemies, Mathf.Max(minEnemies,(int)(maxEnemies*target.GetComponent<playerModel>().returnTrait("mimicEnemyKills"))));
 		
 		//DEBUG 
-		Debug.Log("Melee"+ target.GetComponent<playerModel>().returnTrait("meleeEnemyKills") );
-		Debug.Log("Range"+ target.GetComponent<playerModel>().returnTrait("rangeEnemyKills") );
-		Debug.Log("Mimic"+ target.GetComponent<playerModel>().returnTrait("mimicEnemyKills") );
+		//Debug.Log("Melee"+ target.GetComponent<playerModel>().returnTrait("meleeEnemyKills") );
+		//Debug.Log("Range"+ target.GetComponent<playerModel>().returnTrait("rangeEnemyKills") );
+		//Debug.Log("Mimic"+ target.GetComponent<playerModel>().returnTrait("mimicEnemyKills") );
 
 		spawnTotal = spawnAmountMelee + spawnAmountRange + spawnAmountMimic;
 	   	currTotal = spawnTotal;
@@ -66,6 +66,7 @@ public class enemySpawner : MonoBehaviour {
 			filterSpawn = Random.Range(0,transform.childCount);
 			GameObject temp = Instantiate (enemyMelee, transform.GetChild(filterSpawn).position , target.transform.rotation, transform.parent);
 			temp.tag = "Enemy";
+			//temp.GetComponent<enemyMelee>().setPosition();
 			//Instantiate (enemyMelee, transform.parent);
 		}				    
 
@@ -104,4 +105,6 @@ public class enemySpawner : MonoBehaviour {
 			target.GetComponent<playerModel>().updateTrait("meleeEnemyKills", 1.0f);
 		}
 	}
+
+
 }
