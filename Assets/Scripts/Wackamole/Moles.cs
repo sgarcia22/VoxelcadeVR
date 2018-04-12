@@ -17,13 +17,13 @@ public class Moles : MonoBehaviour {
 	public float handSpeed = 0.5f;
 	private float timeToGoDown = 1f;
 	private float currentTime = 0f;
-	private float distance = .95f;
+	private float distance = .7f;
 	private float moleSpeed = 2f;
 	private bool activated = false;
 	private bool moving = false;
 	private GameObject gameManager;
 	private GroundMoles manager;
-
+	public bool hit = false;
 	void Start () {
 		gameManager = GameObject.FindGameObjectWithTag ("GameManager");
 		manager = gameManager.GetComponent<GroundMoles> ();
@@ -72,6 +72,10 @@ public class Moles : MonoBehaviour {
 						}	
 					}
 					manager.currentMoles--;
+					if (!hit) {
+						hit = true;
+						manager.molesHit += 1;
+					}
 					state = State.DOWN;
 				}
 				if (moving){
@@ -81,8 +85,10 @@ public class Moles : MonoBehaviour {
 				break;
 			case State.UP:
 				break;
-			case State.DOWN:
-				break;
+		case State.DOWN:
+			//if (GameObject.FindGameObjectWithTag ("Player").GetComponent<HandControls> ().temp == gameObject)
+			//	GameObject.FindGameObjectWithTag ("Player").GetComponent<HandControls> ().temp = null;
+			break;
 		}
 		currentTime += Time.deltaTime;
 	}

@@ -19,6 +19,9 @@ public class GroundMoles : MonoBehaviour {
 	public float maxTime = 60f;
 	public float molesHit = 0;
 	public Text final;
+	private bool start = false;
+	private OVRGrabbable leftHammer;
+	private OVRGrabbable rightHammer;
 
 	void Start () {
 		currentMoles = 0;
@@ -26,43 +29,50 @@ public class GroundMoles : MonoBehaviour {
 		trackingMoles = new List<int> ();
 		currentTime = 0f;
 		gotMoleIndex = false;
+		final.text = "Pick Up The Hammers To Begin. ";
+		leftHammer = GameObject.FindGameObjectWithTag ("LeftHammer").GetComponent<OVRGrabbable> ();
+		rightHammer = GameObject.FindGameObjectWithTag ("RightHammer").GetComponent<OVRGrabbable> ();
 	}
 
 	void Update () {
-		
-		//End the boss fight
-		if (totalTime >= maxTime) {
-			final.text = "Score: " + molesHit + "\nPress Any Button to Restart.\n";
-			if (OVRInput.Get (OVRInput.Button.One) || OVRInput.Get (OVRInput.Button.Two) || OVRInput.Get (OVRInput.Button.Three) || OVRInput.Get (OVRInput.Button.Four))
-				SceneManager.LoadScene (0);
-		}
-		else {	
-			final.text = "Score: " + molesHit;
-			if (currentMoles <= maxMoles && !gotMoleIndex) {
-				random = Random.Range (0, 10);
-				if (random <= currentTime) {
-					int getMole = GetMole ();
-					if (gotMoleIndex) {
-						trackingMoles.Add (getMole);
-						ActivateMole (getMole);
-						gotMoleIndex = false;
+		if (!start) {
+			if (leftHammer.isGrabbed && rightHammer.isGrabbed)
+				start = true;
+		} else {
+			//End the boss fight
+			if (totalTime >= maxTime) {
+				final.text = "Score: " + molesHit + "\nPress Any Button to Restart.\n";
+				if (OVRInput.Get (OVRInput.Button.One) || OVRInput.Get (OVRInput.Button.Two) || OVRInput.Get (OVRInput.Button.Three) || OVRInput.Get (OVRInput.Button.Four))
+					SceneManager.LoadScene (0);
+			} else {	
+				final.text = "Score: " + molesHit;
+				if (currentMoles <= maxMoles && !gotMoleIndex) {
+					random = Random.Range (0, 10);
+					if (random <= currentTime) {
+						int getMole = GetMole ();
+						if (gotMoleIndex) {
+							trackingMoles.Add (getMole);
+							ActivateMole (getMole);
+							gotMoleIndex = false;
+						}
 					}
 				}
+				//Keep track of the time
+				currentTime += Time.deltaTime;
+				totalTime += Time.deltaTime;
+				if (trackingMoles.Count > 10) {
+					//Pop the front value
+					trackingMoles.RemoveAt (0);
+				}
+				//Debug.Log (molesSurfaced.Count);
 			}
-			//Keep track of the time
-			currentTime += Time.deltaTime;
-			totalTime += Time.deltaTime;
-			if (trackingMoles.Count > 10) {
-				//Pop the front value
-				trackingMoles.RemoveAt (0);
-			}
-			//Debug.Log (molesSurfaced.Count);
 		}
 	}
 
 	//Activate a mole to send it upwards
 	private void ActivateMole(int index) {
 		moles [index].GetComponent<Moles> ().state = Moles.State.GOING_UP; 
+		moles [index].GetComponent<Moles> ().hit = true;
 		molesSurfaced.Add (moles [index]);
 		++currentMoles;
 		currentTime = 0;
