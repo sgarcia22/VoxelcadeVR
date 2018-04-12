@@ -89,7 +89,7 @@ public class OVRGrabbable : MonoBehaviour
     {
         get { return m_grabbedBy; }
     }
-
+		
 	/// <summary>
 	/// The transform at which this object was grabbed.
 	/// </summary>
