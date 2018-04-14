@@ -19,7 +19,6 @@ public class FoundBossDoor : MonoBehaviour {
 
 	void Update () {
 		if (Vector3.Distance (playerPosition.position, transform.position) < 5f && Mathf.Abs (playerPosition.position.y - transform.position.y) < 0.5f) {
-			Debug.Log ("Found");
 			found (new Vector3 (transform.position.x, 4.75f, transform.position.z));
 		}
 	}
@@ -32,6 +31,7 @@ public class FoundBossDoor : MonoBehaviour {
 
 	private void hammerFound () {
 		hasHammer = true;
+		found (new Vector3 (transform.position.x, 4.75f, transform.position.z));
 	}
 
 	void OnEnable () {
