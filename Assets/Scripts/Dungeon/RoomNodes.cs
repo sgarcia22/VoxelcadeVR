@@ -5,6 +5,8 @@ using UnityEngine;
 public class RoomNodes : MonoBehaviour {
 
 	public static int done = 0;
+	public static int roomsInPath = 0;
+	public static int chestSpawned = 0;
 
 	[SerializeField]
 	private NeighborMap map;
@@ -16,13 +18,20 @@ public class RoomNodes : MonoBehaviour {
 	private int[] neighbors;
 	[SerializeField]
 	private GameObject possibleBossDoor;
+	[SerializeField]
+	private GameObject chestPrefab;
+	[SerializeField]
+	private GameObject healthPotPrefab;
+
 	private ArrayList unconnectedNeighbors;
 	private ArrayList connectedNeighbors;
 	private bool inPath;
+	private Vector3 playerStart;
 
 	void Start () {
 		connectedNeighbors = new ArrayList ();
 		unconnectedNeighbors = new ArrayList ();
+		playerStart = new Vector3 (-14.38f, 1.5f, -14.38f);
 
 		for (int i = 0; i < neighbors.Length; ++i) {
 			unconnectedNeighbors.Add (map.getNeighbors(neighbors[i]));
@@ -42,9 +51,22 @@ public class RoomNodes : MonoBehaviour {
 	}
 
 	public void setInPath () {
+
+		++roomsInPath;
+
 		if (possibleBossDoor != null) {
 			BossDoorSelection.addDoor (ID, possibleBossDoor);
 		}
+
+		if (Mathf.Abs (transform.position.x - playerStart.x) > 1 && Mathf.Abs (transform.position.z - playerStart.z) > 1) {
+			if (Random.Range (0, 10) == Random.Range (0, 10) || ((float)chestSpawned / (float)roomsInPath) < 0.1) {
+				++chestSpawned;
+				Instantiate (chestPrefab, transform.position + new Vector3 (0f, 0.05f, 0f), chestPrefab.transform.rotation);
+			} else if (Random.Range (0, 10) == Random.Range (0, 10)) {
+				Instantiate (healthPotPrefab, transform.position + new Vector3 (2.5f, 0.25f, 2.5f), healthPotPrefab.transform.rotation);
+			}
+		}
+
 		inPath = true;
 	}
 

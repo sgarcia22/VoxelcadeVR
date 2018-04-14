@@ -11,15 +11,22 @@ public class PlayerStats : MonoBehaviour {
 	private float maxHealth;
 	[SerializeField]
 	private Slider slider;
+	[SerializeField]
+	Vector3 startPos;
 	private int level;
 
 	void Start () {
 		level = 0;
 		slider.value = (health / maxHealth);
+		transform.position = startPos;
 	}
 
 	public void updateHealth (float amount) {
 		health += amount;
+
+		if (health > maxHealth) {
+			health = maxHealth;
+		}
 
 		slider.value = (health / maxHealth);
 
@@ -27,6 +34,10 @@ public class PlayerStats : MonoBehaviour {
 			slider.fillRect.gameObject.SetActive (false);
 			//cause game reset
 		}
+	}
+
+	public void addToMaxHealth (float amount) {
+		maxHealth += amount;
 	}
 
 	public float getHealth () {

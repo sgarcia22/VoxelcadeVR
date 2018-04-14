@@ -291,7 +291,6 @@ GameObject:
   - component: {fileID: 4081835774517240}
   - component: {fileID: 33547471717716856}
   - component: {fileID: 23835640228986706}
-  - component: {fileID: 65723225570140952}
   m_Layer: 0
   m_Name: Ceiling
   m_TagString: Untagged
@@ -1020,7 +1019,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1843187298271946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4575334884750786}
@@ -3345,18 +3344,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.37624377, y: 0.12982738, z: 0.12}
   m_Center: {x: 0.00058021396, y: 0.18508649, z: 0}
---- !u!65 &65723225570140952
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1349221813163424}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.049999997, z: 0.9}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65738412894256070
 BoxCollider:
   m_ObjectHideFlags: 1

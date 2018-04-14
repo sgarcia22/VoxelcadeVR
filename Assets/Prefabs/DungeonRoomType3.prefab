@@ -146,7 +146,6 @@ GameObject:
   - component: {fileID: 4348237299723554}
   - component: {fileID: 33882127131128428}
   - component: {fileID: 23021283371509716}
-  - component: {fileID: 65779407668152786}
   m_Layer: 0
   m_Name: Ceiling
   m_TagString: Untagged
@@ -561,6 +560,7 @@ GameObject:
   - component: {fileID: 33460274389533184}
   - component: {fileID: 23883007546031746}
   - component: {fileID: 65672818009680350}
+  - component: {fileID: 114999219244752600}
   m_Layer: 0
   m_Name: Lava
   m_TagString: Untagged
@@ -717,6 +717,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4192985006239098}
+  - component: {fileID: 65721571938755070}
   m_Layer: 0
   m_Name: DungeonRoomType3
   m_TagString: Untagged
@@ -827,7 +828,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1950491609943410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 33.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4726126631220404}
@@ -3013,11 +3014,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1793700137475134}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 2.220446e-16, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 10, y: 0.2437076, z: 10.079102}
+  m_Center: {x: 0, y: -0.30667403, z: 0.03955078}
 --- !u!65 &65694147042623850
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3042,6 +3043,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.16040638, y: 0.5, z: 0.12}
   m_Center: {x: -0.2697968, y: 0, z: 0}
+--- !u!65 &65721571938755070
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1950491609943410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.6184864, y: 0.020253152, z: 5.3913918}
+  m_Center: {x: 0.0455966, y: -0.2547624, z: -0.5297642}
 --- !u!65 &65745045369031382
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3089,18 +3102,6 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.9, y: 0.5, z: 0.12}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &65779407668152786
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1186452413220408}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.049999997, z: 0.9}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65784768799801762
 BoxCollider:
@@ -3234,3 +3235,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.16040638, y: 0.5, z: 0.12}
   m_Center: {x: -0.2697968, y: 0, z: 0}
+--- !u!114 &114999219244752600
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1793700137475134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f485c85d492d674486b9a424144826b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
