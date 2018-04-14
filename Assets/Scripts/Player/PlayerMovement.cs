@@ -39,8 +39,10 @@ public class PlayerMovement : MonoBehaviour {
 		if (player.GetComponent<PlayerStats> ().getHealth () <= 0) {
 			if (!gameOver.activeSelf)
 				gameOver.SetActive (true);
-			if (OVRInput.Get (OVRInput.Button.One) || OVRInput.Get (OVRInput.Button.Two) || OVRInput.Get (OVRInput.Button.Three) || OVRInput.Get (OVRInput.Button.Four))
+			if (OVRInput.Get (OVRInput.Button.One) || OVRInput.Get (OVRInput.Button.Two) || OVRInput.Get (OVRInput.Button.Three) || OVRInput.Get (OVRInput.Button.Four)) {
+				RoomNodes.done = 0;
 				SceneManager.LoadScene (0);
+			}
 		}
 		else {
 			if (currentTime >= timeTillPress)
