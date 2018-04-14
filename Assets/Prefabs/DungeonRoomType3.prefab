@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 4179013332122268}
   m_Layer: 0
   m_Name: Bridges
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 4726126631220404}
   m_Layer: 0
   m_Name: Dungeon Floor (2)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
