@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour {
 				gameOver.SetActive (true);
 			if (OVRInput.Get (OVRInput.Button.One) || OVRInput.Get (OVRInput.Button.Two) || OVRInput.Get (OVRInput.Button.Three) || OVRInput.Get (OVRInput.Button.Four)) {
 				RoomNodes.done = 0;
+				BossDoorSelection.clearList();
 				SceneManager.LoadScene (0);
 			}
 		}
