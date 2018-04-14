@@ -19,4 +19,8 @@ public class BossDoorSelection : MonoBehaviour {
 			doors.Add (ID, door);
 		}
 	}
+
+	public static void clearList () {
+		doors.Clear ();
+	}
 }
