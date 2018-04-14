@@ -9,6 +9,9 @@ public class enemyMelee : MonoBehaviour {
 	public GameObject target;	 //Current target, the Player
 	float lookAtHeight;   //Height use for the enemy look at
 	public NavMeshAgent agent;   //Tells the Enemy where to go on
+	private Animator animator;
+	public AudioClip soundEffect;
+	public AudioSource soundSource;
 
 	public Transform patrolPosition; //Adding in enemy movement
 	public enemyWaypoint enemyWaypoint;
@@ -49,6 +52,8 @@ public class enemyMelee : MonoBehaviour {
 		lookAtHeight = target.transform.position[1];
 		agent = GetComponent<NavMeshAgent>();
 		state = enemyMelee.State.IDLE;
+		animator = this.transform.GetChild(0).GetComponent<Animator>();
+		soundSource = GetComponent<AudioSource>();
 		//enemyWaypoint = gameObject.transform.parent.GetChild(0).GetComponent<enemyWaypoint>();
 		//patrolPosition = enemyWaypoint.nextWaypoint();
 		//rend = GetComponent<Renderer>();
@@ -90,7 +95,7 @@ public class enemyMelee : MonoBehaviour {
 			agent.SetDestination(this.transform.position);
 		}*/
 		agent.speed = speedIdle;
-
+		animator.SetTrigger("Idle");
 		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.0)
 		{
 			state = enemyMelee.State.CHASE;
@@ -112,6 +117,7 @@ public class enemyMelee : MonoBehaviour {
 		lookAtProcedure();
 		//rend.material.color = Color.blue;  //Used only for visualization of state changes
 		agent.speed = speed;
+		animator.SetTrigger("Chase");
 		agent.SetDestination(target.transform.position);
 
 		//When the enemy is close enough, attack the player
@@ -119,15 +125,19 @@ public class enemyMelee : MonoBehaviour {
 		{
 			state = enemyMelee.State.ATTACK;
 		}
+		else if(Vector3.Distance(this.transform.position,target.transform.position) > 1.0)
+		{
+				state = enemyMelee.State.IDLE;
+		}
 	
 	}
 	//Attack
 	void Attack()
 	{
 		lookAtProcedure();
-		//rend.material.color = Color.red; //Used only for visualization of state changes
+		//Play sound
 		agent.SetDestination(target.transform.position);
-		
+		animator.SetTrigger("Attack");
 		//Needs some cleaning
 		if(Vector3.Distance(this.transform.position,target.transform.position) < 0.5)
 		{
@@ -135,8 +145,14 @@ public class enemyMelee : MonoBehaviour {
 			//Remove health
 			if(fireRate > 1.0f)
 			{
+				
 				target.GetComponent<PlayerStats>().updateHealth(-1.0f*damage);
 				fireRate = 0.0f;
+				if(!soundSource.isPlaying)
+				{
+					//Play sound
+					soundSource.PlayOneShot(soundEffect, 0.5F);
+				}
 			}
 			fireRate = fireRate + Time.deltaTime;
 

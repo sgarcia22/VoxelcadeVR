@@ -75,7 +75,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1144788124529060
 GameObject:
   m_ObjectHideFlags: 1
@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 95460582255546406}
   - component: {fileID: 114367688546734836}
   - component: {fileID: 114866448457804164}
+  - component: {fileID: 82791679505673996}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: Untagged
@@ -601,7 +602,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1593387922373952}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.21, y: 9.14, z: -6.72}
+  m_LocalPosition: {x: -1.21, y: 11.5, z: -6.72}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children:
   - {fileID: 4940738217048974}
@@ -758,6 +759,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 10.16, z: 11.486703}
   m_Center: {x: -1.2900001, y: 13.000017, z: 0.7433509}
+--- !u!82 &82791679505673996
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1593387922373952}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95460582255546406
 Animator:
   serializedVersion: 3
@@ -789,9 +870,12 @@ MonoBehaviour:
   target: {fileID: 0}
   agent: {fileID: 195786256396404220}
   rend: {fileID: 0}
+  patrolPosition: {fileID: 0}
+  enemyWaypoint: {fileID: 0}
   state: 0
   damage: 10
   speed: 1
+  speedIdle: 0.5
   health: 100
 --- !u!114 &114183996893134030
 MonoBehaviour:
@@ -958,8 +1042,10 @@ MonoBehaviour:
   projectileBody: {fileID: 54889330754393928, guid: 67ec967443b2afe4ab84517defed8aa6,
     type: 2}
   shotPos: {fileID: 4701974442538742}
-  shotForce: 400
+  shotForce: 500
   fireRate: 0
+  soundEffect: {fileID: 8300000, guid: 3174111d1f06d4cb19d95161d95e5797, type: 3}
+  soundSource: {fileID: 0}
 --- !u!114 &114912375950452692
 MonoBehaviour:
   m_ObjectHideFlags: 1

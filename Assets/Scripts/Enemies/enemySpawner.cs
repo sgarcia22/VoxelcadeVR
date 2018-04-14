@@ -30,7 +30,9 @@ public class enemySpawner : MonoBehaviour {
 
 	void Update()
 	{
-		if(spawnCall && Vector3.Distance(this.transform.position, target.transform.position) < 5 )
+		if(spawnCall && Vector3.Distance(this.transform.position, target.transform.position) < 5 
+			&& (target.transform.position.y > this.transform.position.y) 
+			&& (target.transform.position.y < this.transform.position.y+1.2f))
 		{
 			Debug.Log("SpawnCalled");
 			Spawn();

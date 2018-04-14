@@ -10,18 +10,27 @@ public class projectile : MonoBehaviour
     public Transform shotPos; 		//Position of the projectile instantiation.
     public float shotForce = 0.05f; //Force of the shot
     public float fireRate = 0.0f;  //The rate  of fire for ranged enemies
+	public AudioClip soundEffect;
+	public AudioSource soundSource;
 
-
-	//TODO 
-	//Add in randomizer for missing
+	void Start()
+	{
+		soundSource = GetComponent<AudioSource>();
+	}
 
 	//Called in the enemyRanged attack script when in ATTACK state.
 	public void attack()
 	{
 		if(fireRate > 0.9f)
 		{
-			Rigidbody shot = Instantiate(projectileBody, shotPos.position, shotPos.rotation) as Rigidbody;
-			shot.AddForce(shotPos.forward * shotForce);
+			//Movement changes
+			if(!soundSource.isPlaying)
+			{
+				//Play sound
+				soundSource.PlayOneShot(soundEffect, 0.5F);
+			}
+			Rigidbody shot = Instantiate(projectileBody, this.transform.position, this.transform.rotation) as Rigidbody;
+			shot.AddForce(this.transform.forward * shotForce);
 			fireRate = 0.0f;
 		}
 		fireRate = fireRate + Time.deltaTime;
