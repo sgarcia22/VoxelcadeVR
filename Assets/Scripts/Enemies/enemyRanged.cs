@@ -11,6 +11,8 @@ public class enemyRanged : MonoBehaviour {
 	public NavMeshAgent agent;   //Tells the Enemy where to go on
 	public Renderer rend;		 //For accessing material color for now
 
+
+
 	public Transform patrolPosition; //Adding in enemy movement
 	public enemyWaypoint enemyWaypoint;
 
@@ -48,6 +50,7 @@ public class enemyRanged : MonoBehaviour {
 		state = enemyRanged.State.IDLE;
 		rend = GetComponent<Renderer>();
 		rend.material.color = Color.green; 
+		
 
 	}
 	
@@ -95,6 +98,7 @@ public class enemyRanged : MonoBehaviour {
 		{
 			patrolPosition = enemyWaypoint.nextWaypoint();
 		}
+		
 
 	}
 	//Chase
@@ -112,6 +116,10 @@ public class enemyRanged : MonoBehaviour {
 		{
 			state = enemyRanged.State.ATTACK;
 		}
+		else if(Vector3.Distance(this.transform.position,target.transform.position) >= 1.5)
+		{
+				state = enemyRanged.State.IDLE;
+		}
 	
 	}
 	//Attack
@@ -119,9 +127,6 @@ public class enemyRanged : MonoBehaviour {
 	{
 		//Visual changes
 		this.transform.GetChild(0).GetComponent<enemyRangeLook>().updateMaterial(1);
-		
-		//Movement changes
-		//agent.SetDestination(target.transform.position);
 
 		//Needs some cleaning
 		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.2)

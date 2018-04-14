@@ -23,6 +23,7 @@ public class enemyMimic : MonoBehaviour {
 	//Enemy Variables
 	//Damage
 	public int damage = 10;
+	public float fireRate = 0.0f;  //The rate  of fire for ranged enemies
 	//Speed
 	public float speed = 0.5f;
 	//Health
@@ -75,12 +76,12 @@ public class enemyMimic : MonoBehaviour {
 	    //If the player is within a certain distance move towards them
 		//Eventually this will just be on room enter.
 
-		if(Vector3.Distance(this.transform.position,target.transform.position) < 3.0)
+		if(Vector3.Distance(this.transform.position,target.transform.position) < 2.3)
 		{
 			if(!soundSource.isPlaying)
 			{
-			//Play sound
-			soundSource.PlayOneShot(soundEffect, 0.7F);
+				//Play sound
+				soundSource.PlayOneShot(soundEffect, 0.5F);
 			}
 		}
 
@@ -104,6 +105,10 @@ public class enemyMimic : MonoBehaviour {
 		{
 			state = enemyMimic.State.ATTACK;
 		}
+		else if(Vector3.Distance(this.transform.position,target.transform.position) >= 1.5)
+		{
+				state = enemyMimic.State.IDLE;
+		}
 	
 	}
 	//Attack
@@ -120,6 +125,12 @@ public class enemyMimic : MonoBehaviour {
 		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.0)
 		{
 			agent.SetDestination(this.transform.position);
+			if(fireRate > 1.0f)
+			{
+				target.GetComponent<PlayerStats>().updateHealth(-1.0f*damage);
+				fireRate = 0.0f;
+			}
+			fireRate = fireRate + Time.deltaTime;
 		}
 		//If the player starts moving away, chase them
 		if(Vector3.Distance(this.transform.position,target.transform.position) > 1.0)

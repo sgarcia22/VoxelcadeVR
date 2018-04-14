@@ -327,7 +327,7 @@ MonoBehaviour:
   damage: 10
   speed: 0.5
   health: 100
-  soundEffect: {fileID: 0}
+  soundEffect: {fileID: 8300000, guid: ae36146c39ffe4f7d860cd910dac56f5, type: 3}
   soundSource: {fileID: 0}
   rotate: 0
 --- !u!195 &195035309774301580
