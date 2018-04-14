@@ -415,7 +415,6 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   slider: {fileID: 61500300}
-  startPos: {x: 0, y: 0, z: 0}
 --- !u!54 &41012704
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -488,6 +487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 676581959}
   BDS: {fileID: 1775400521}
+  player: {fileID: 1383343124}
 --- !u!4 &51279305
 Transform:
   m_ObjectHideFlags: 0
@@ -499,7 +499,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &51375712
 GameObject:
@@ -679,7 +679,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4894166517492372, guid: 4fa6ee9abe0c6884dbc6b45c44e08f3f, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114968128124644952, guid: 4fa6ee9abe0c6884dbc6b45c44e08f3f,
         type: 2}
@@ -690,11 +690,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114968128124644952, guid: 4fa6ee9abe0c6884dbc6b45c44e08f3f,
-        type: 2}
-      propertyPath: gameOver
-      value: 
-      objectReference: {fileID: 1471318436}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4fa6ee9abe0c6884dbc6b45c44e08f3f, type: 2}
   m_IsPrefabParent: 0
@@ -1011,7 +1006,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4519019667655574, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4413792099225824, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
@@ -1019,7 +1014,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4290854544890502, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1721164872375714, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_TagString
@@ -1114,10 +1109,6 @@ MonoBehaviour:
   ID: 18
   neighbors: 13000000150000000a0000000c000000
   possibleBossDoor: {fileID: 0}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1 &61500299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1511,6 +1502,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114561444869453224, guid: 9d90abcba525e5d43b51e7d820ed5552,
+        type: 2}
+      propertyPath: spawnAmountMimic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d90abcba525e5d43b51e7d820ed5552, type: 2}
   m_IsPrefabParent: 0
@@ -1681,7 +1677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1625916993}
   text: {fileID: 305565605}
-  bossDoorIcon: {fileID: 970354688}
+  bossDoorIcon: {fileID: 2102044039}
 --- !u!1001 &109394994
 Prefab:
   m_ObjectHideFlags: 0
@@ -2344,11 +2340,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4519019667655574, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4290854544890502, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
@@ -2379,10 +2375,6 @@ MonoBehaviour:
   ID: 13
   neighbors: 010000000300000005000000070000000a0000000c0000000e0000001000000013000000150000001700000019000000
   possibleBossDoor: {fileID: 0}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1001 &124709112
 Prefab:
   m_ObjectHideFlags: 0
@@ -2742,7 +2734,7 @@ Prefab:
     - target: {fileID: 65672818009680350, guid: 07f40e7978eb22d46bef9986e7e142aa,
         type: 2}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1073393383092918, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_IsActive
@@ -3058,15 +3050,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4348237299723554, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4953484661952220, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4320984612840878, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4179013332122268, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
@@ -3074,11 +3066,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4357702173287050, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4726126631220404, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
@@ -3109,10 +3101,6 @@ MonoBehaviour:
   ID: 4
   neighbors: 010000000300000005000000070000000a0000000c0000000e00000010000000
   possibleBossDoor: {fileID: 0}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1 &153599888 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1765568411671442, guid: 59404c3694dea2a45bf0c20d49a43059,
@@ -3582,11 +3570,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4290854544890502, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4519019667655574, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4467120017797506, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
@@ -3629,10 +3617,6 @@ MonoBehaviour:
   ID: 24
   neighbors: 15000000190000000c00000010000000
   possibleBossDoor: {fileID: 0}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1001 &173538074
 Prefab:
   m_ObjectHideFlags: 0
@@ -4159,7 +4143,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1990675443}
   speed: 0.1
-  temp: {fileID: 0}
 --- !u!135 &251430644
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4682,11 +4665,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4519019667655574, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4290854544890502, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4413792099225824, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
@@ -4729,10 +4712,6 @@ MonoBehaviour:
   ID: 26
   neighbors: 1900000017000000100000000e000000
   possibleBossDoor: {fileID: 0}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1 &305565603
 GameObject:
   m_ObjectHideFlags: 0
@@ -4807,6 +4786,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 305565603}
+--- !u!1 &310652793 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+  m_PrefabInternal: {fileID: 2072301126}
+--- !u!114 &310652798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 310652793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1addf1084586904bb7739abc9d58b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  slider: {fileID: 1492439270}
+--- !u!114 &310652799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 310652793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5cb80fb068ed64aa6b5cfc0694ab37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kills: 0
 --- !u!1001 &310692928
 Prefab:
   m_ObjectHideFlags: 0
@@ -5794,15 +5803,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4357702173287050, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4953484661952220, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4320984612840878, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4179013332122268, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
@@ -5810,11 +5819,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4726126631220404, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4348237299723554, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
@@ -5845,10 +5854,6 @@ MonoBehaviour:
   ID: 10
   neighbors: 000000000200000004000000090000000b0000000d000000120000001400000016000000
   possibleBossDoor: {fileID: 1999526424}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1001 &425489060
 Prefab:
   m_ObjectHideFlags: 0
@@ -5957,7 +5962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 448214065}
   text: {fileID: 305565605}
-  bossDoorIcon: {fileID: 0}
+  bossDoorIcon: {fileID: 2102044039}
 --- !u!81 &426312645
 AudioListener:
   m_ObjectHideFlags: 0
@@ -6889,19 +6894,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4456818585171678, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4625776586024526, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4944194213445898, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4711687094179270, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
@@ -6932,10 +6937,6 @@ MonoBehaviour:
   ID: 16
   neighbors: 0400000006000000080000000d0000000f0000001100000016000000180000001a000000
   possibleBossDoor: {fileID: 802549912}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1001 &500859579
 Prefab:
   m_ObjectHideFlags: 0
@@ -7622,15 +7623,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4320984612840878, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4953484661952220, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4348237299723554, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4179013332122268, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
@@ -7638,11 +7639,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4357702173287050, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4726126631220404, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
@@ -7673,10 +7674,6 @@ MonoBehaviour:
   ID: 0
   neighbors: 01000000030000000a0000000c000000
   possibleBossDoor: {fileID: 0}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1001 &545028252
 Prefab:
   m_ObjectHideFlags: 0
@@ -8177,19 +8174,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4456818585171678, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4625776586024526, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4944194213445898, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4711687094179270, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
@@ -8220,10 +8217,6 @@ MonoBehaviour:
   ID: 22
   neighbors: 130000001500000017000000190000000a0000000c0000000e00000010000000
   possibleBossDoor: {fileID: 0}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1 &581481594
 GameObject:
   m_ObjectHideFlags: 0
@@ -8431,7 +8424,6 @@ RectTransform:
   - {fileID: 51375713}
   - {fileID: 249555048}
   - {fileID: 905742720}
-  - {fileID: 1471318437}
   m_Father: {fileID: 1625916993}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8845,11 +8837,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4726950472897758, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4081835774517240, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4575334884750786, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_RootOrder
@@ -8861,7 +8853,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4735277429820380, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
@@ -8892,10 +8884,6 @@ MonoBehaviour:
   ID: 25
   neighbors: 16000000180000001a0000000d0000000f00000011000000
   possibleBossDoor: {fileID: 707694943}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1001 &611781066
 Prefab:
   m_ObjectHideFlags: 0
@@ -10721,11 +10709,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4290854544890502, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4519019667655574, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4413792099225824, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
@@ -10764,10 +10752,6 @@ MonoBehaviour:
   ID: 20
   neighbors: 13000000170000000a0000000e000000
   possibleBossDoor: {fileID: 0}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1 &762287553
 GameObject:
   m_ObjectHideFlags: 0
@@ -11761,19 +11745,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4711687094179270, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4625776586024526, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4456818585171678, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4944194213445898, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
@@ -11804,10 +11788,6 @@ MonoBehaviour:
   ID: 3
   neighbors: 000000000400000006000000090000000d0000000f000000
   possibleBossDoor: {fileID: 1577476081}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1 &813374233 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1545085289317228, guid: 59404c3694dea2a45bf0c20d49a43059,
@@ -12289,7 +12269,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4081835774517240, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4929870214561026, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_RootOrder
@@ -12301,11 +12281,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4726950472897758, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4735277429820380, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1843187298271946, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_Name
@@ -12340,10 +12320,6 @@ MonoBehaviour:
   ID: 21
   neighbors: 090000000d0000000f000000120000001600000018000000
   possibleBossDoor: {fileID: 1645790126}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1001 &838286079
 Prefab:
   m_ObjectHideFlags: 0
@@ -12452,6 +12428,68 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!1001 &845266221
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: dd8c80a5a447f04418da146781b05fd8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.13507782
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dd8c80a5a447f04418da146781b05fd8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.2672
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dd8c80a5a447f04418da146781b05fd8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.43738055
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dd8c80a5a447f04418da146781b05fd8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dd8c80a5a447f04418da146781b05fd8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.95911473
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dd8c80a5a447f04418da146781b05fd8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dd8c80a5a447f04418da146781b05fd8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.28301767
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dd8c80a5a447f04418da146781b05fd8, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dd8c80a5a447f04418da146781b05fd8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1030796
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dd8c80a5a447f04418da146781b05fd8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1030796
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dd8c80a5a447f04418da146781b05fd8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1030796
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dd8c80a5a447f04418da146781b05fd8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: dd8c80a5a447f04418da146781b05fd8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -147.119
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: dd8c80a5a447f04418da146781b05fd8, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1 &846866228 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1537126161782772, guid: 07f40e7978eb22d46bef9986e7e142aa,
@@ -13429,145 +13467,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1332266093105632, guid: 53b931333e07b1c40a78585d87d6261f,
     type: 2}
   m_PrefabInternal: {fileID: 968954874}
---- !u!1 &970354688
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 970354693}
-  - component: {fileID: 970354692}
-  - component: {fileID: 970354691}
-  - component: {fileID: 970354690}
-  - component: {fileID: 970354689}
-  m_Layer: 0
-  m_Name: BossDoorIcon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &970354689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 970354688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8a6a82c97ec2574fb2c2dd1d76689ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blinkDelay: 1
---- !u!23 &970354690
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 970354688}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: ccc99a1d2912837489e92ece125874c0, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!135 &970354691
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 970354688}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &970354692
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 970354688}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &970354693
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 970354688}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.75, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &972590096
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4192985006239098, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4192985006239098, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4192985006239098, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 33.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4192985006239098, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4192985006239098, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4192985006239098, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4192985006239098, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4192985006239098, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
-      propertyPath: m_RootOrder
-      value: 17
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &979756295 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1799164719180370, guid: 07f40e7978eb22d46bef9986e7e142aa,
@@ -14827,11 +14726,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4519019667655574, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4290854544890502, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4413792099225824, guid: 59404c3694dea2a45bf0c20d49a43059, type: 2}
       propertyPath: m_RootOrder
@@ -14866,10 +14765,6 @@ MonoBehaviour:
   ID: 5
   neighbors: 0200000004000000080000000b0000000d00000011000000
   possibleBossDoor: {fileID: 1790849888}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1 &1056023637 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1853366614225382, guid: 89d2f9dd22144bf4b9c83c814e67e358,
@@ -15190,36 +15085,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1761427865406598, guid: 13e83b4d963be9a47b74eddfa3a7baed,
     type: 2}
   m_PrefabInternal: {fileID: 1095153616}
---- !u!1 &1100780761 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-  m_PrefabInternal: {fileID: 2072301126}
---- !u!114 &1100780762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1100780761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1addf1084586904bb7739abc9d58b04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
-  slider: {fileID: 1492439270}
-  startPos: {x: -14.38, y: 1.5, z: -14.38}
---- !u!114 &1100780763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1100780761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6395b89538c8d9b428c3ef5444682a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1112116587 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1765568411671442, guid: 59404c3694dea2a45bf0c20d49a43059,
@@ -15852,19 +15717,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4357702173287050, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4348237299723554, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4953484661952220, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4320984612840878, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4179013332122268, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
@@ -15872,7 +15737,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4726126631220404, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
@@ -15903,10 +15768,6 @@ MonoBehaviour:
   ID: 23
   neighbors: 0b0000000d0000001100000014000000160000001a000000
   possibleBossDoor: {fileID: 1666841650}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1001 &1179146565
 Prefab:
   m_ObjectHideFlags: 0
@@ -16602,7 +16463,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1990675443}
   speed: 0.1
-  temp: {fileID: 0}
 --- !u!135 &1252053161
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -17031,19 +16891,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4348237299723554, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4320984612840878, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4357702173287050, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4726126631220404, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4179013332122268, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
@@ -17051,7 +16911,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4953484661952220, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
@@ -17082,10 +16942,6 @@ MonoBehaviour:
   ID: 17
   neighbors: 05000000070000000e000000100000001700000019000000
   possibleBossDoor: {fileID: 0}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1 &1289912004 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1619574803958176, guid: 5a003179d9646d84ba37ecf05e9df6ff,
@@ -17495,19 +17351,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4320984612840878, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4726126631220404, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4953484661952220, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4357702173287050, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4179013332122268, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
@@ -17515,7 +17371,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4348237299723554, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
@@ -17546,10 +17402,6 @@ MonoBehaviour:
   ID: 8
   neighbors: 05000000070000000e00000010000000
   possibleBossDoor: {fileID: 0}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1 &1317801505
 GameObject:
   m_ObjectHideFlags: 0
@@ -18093,10 +17945,6 @@ MonoBehaviour:
   ID: 7
   neighbors: 0400000006000000080000000d0000000f00000011000000
   possibleBossDoor: {fileID: 762612065}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1001 &1320539602
 Prefab:
   m_ObjectHideFlags: 0
@@ -18239,6 +18087,11 @@ Prefab:
     - target: {fileID: 4547288586422338, guid: 9d90abcba525e5d43b51e7d820ed5552, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114561444869453224, guid: 9d90abcba525e5d43b51e7d820ed5552,
+        type: 2}
+      propertyPath: spawnAmountMimic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d90abcba525e5d43b51e7d820ed5552, type: 2}
@@ -18614,7 +18467,7 @@ Transform:
   - {fileID: 1990675444}
   - {fileID: 107069478}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: -182.297, z: 0}
 --- !u!1 &1388224805 stripped
 GameObject:
@@ -19277,82 +19130,6 @@ Transform:
   m_Father: {fileID: 1984839657}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1471318436
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1471318437}
-  - component: {fileID: 1471318439}
-  - component: {fileID: 1471318438}
-  m_Layer: 5
-  m_Name: GameOver
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1471318437
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1471318436}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 329.5, y: -30.100006, z: -23.3}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
-  m_Children: []
-  m_Father: {fileID: 595440892}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 329, y: -30.6}
-  m_SizeDelta: {x: 891.7, y: 841.5}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1471318438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1471318436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 125
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 300
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'GameOver
-
-    Press Any Button To Start Over'
---- !u!222 &1471318439
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1471318436}
 --- !u!1001 &1475216912
 Prefab:
   m_ObjectHideFlags: 0
@@ -20040,19 +19817,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4357702173287050, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4726126631220404, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4320984612840878, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4953484661952220, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4179013332122268, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
@@ -20060,7 +19837,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4348237299723554, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
@@ -20091,10 +19868,6 @@ MonoBehaviour:
   ID: 2
   neighbors: 01000000050000000a0000000e000000
   possibleBossDoor: {fileID: 0}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1001 &1530566133
 Prefab:
   m_ObjectHideFlags: 0
@@ -20412,19 +20185,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4726126631220404, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4320984612840878, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4953484661952220, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4348237299723554, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4179013332122268, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
@@ -20432,7 +20205,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4357702173287050, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
@@ -20463,10 +20236,6 @@ MonoBehaviour:
   ID: 12
   neighbors: 000000000400000006000000090000000d0000000f000000120000001600000018000000
   possibleBossDoor: {fileID: 1169707285}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1 &1539507202
 GameObject:
   m_ObjectHideFlags: 0
@@ -22347,19 +22116,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4625776586024526, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4456818585171678, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4711687094179270, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4944194213445898, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
@@ -22390,10 +22159,6 @@ MonoBehaviour:
   ID: 9
   neighbors: 01000000030000000a0000000c0000001300000015000000
   possibleBossDoor: {fileID: 0}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1001 &1669494327
 Prefab:
   m_ObjectHideFlags: 0
@@ -23715,7 +23480,6 @@ GameObject:
   - component: {fileID: 1775400516}
   - component: {fileID: 1775400515}
   - component: {fileID: 1775400521}
-  - component: {fileID: 1775400518}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -23737,7 +23501,6 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   slider: {fileID: 61500300}
-  startPos: {x: -14.38, y: 1.5, z: -14.38}
 --- !u!82 &1775400516
 AudioSource:
   m_ObjectHideFlags: 0
@@ -23835,17 +23598,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1775400518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1775400514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6395b89538c8d9b428c3ef5444682a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1775400520
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24384,11 +24136,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4726950472897758, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4735277429820380, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4929870214561026, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_RootOrder
@@ -24400,7 +24152,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4081835774517240, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
@@ -24431,10 +24183,6 @@ MonoBehaviour:
   ID: 14
   neighbors: 0200000004000000080000000b0000000d0000001100000014000000160000001a000000
   possibleBossDoor: {fileID: 1669890545}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1 &1793025285 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1537126161782772, guid: 07f40e7978eb22d46bef9986e7e142aa,
@@ -25144,19 +24892,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4320984612840878, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4348237299723554, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4357702173287050, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4726126631220404, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4179013332122268, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
@@ -25164,7 +24912,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4953484661952220, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
@@ -25195,10 +24943,6 @@ MonoBehaviour:
   ID: 6
   neighbors: 03000000070000000c00000010000000
   possibleBossDoor: {fileID: 0}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1001 &1866510773
 Prefab:
   m_ObjectHideFlags: 0
@@ -25592,7 +25336,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4726126631220404, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4179013332122268, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
@@ -25600,19 +25344,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4320984612840878, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4357702173287050, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4348237299723554, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4953484661952220, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
@@ -25643,10 +25387,6 @@ MonoBehaviour:
   ID: 15
   neighbors: 03000000070000000c000000100000001500000019000000
   possibleBossDoor: {fileID: 0}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1001 &1876957948
 Prefab:
   m_ObjectHideFlags: 0
@@ -26143,7 +25883,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4735277429820380, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4929870214561026, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_RootOrder
@@ -26151,15 +25891,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4726950472897758, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4081835774517240, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1843187298271946, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
       propertyPath: m_Name
-      value: DungeonRoomType2 - NowWorking
+      value: DungeonRoomType2 - NotWorking
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5a003179d9646d84ba37ecf05e9df6ff, type: 2}
@@ -26190,10 +25930,6 @@ MonoBehaviour:
   ID: 19
   neighbors: 120000001400000016000000090000000b0000000d000000
   possibleBossDoor: {fileID: 101251353}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1 &1903480707 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1313201627081658, guid: 5a003179d9646d84ba37ecf05e9df6ff,
@@ -26631,19 +26367,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4456818585171678, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4711687094179270, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4625776586024526, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4944194213445898, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 89d2f9dd22144bf4b9c83c814e67e358, type: 2}
@@ -26674,10 +26410,6 @@ MonoBehaviour:
   ID: 11
   neighbors: 01000000050000000a0000000e0000001300000017000000
   possibleBossDoor: {fileID: 0}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1001 &1921643269
 Prefab:
   m_ObjectHideFlags: 0
@@ -27443,10 +27175,6 @@ MonoBehaviour:
   ID: 1
   neighbors: 000000000200000004000000090000000b0000000d000000
   possibleBossDoor: {fileID: 1339670364}
-  chestPrefab: {fileID: 1903939429653812, guid: 456cf720b2ba3ec4eb5c57fe39358224,
-    type: 2}
-  healthPotPrefab: {fileID: 1934244784163672, guid: 81ef230df046b4f44ac31b47c48dd1a8,
-    type: 2}
 --- !u!1 &1984839656
 GameObject:
   m_ObjectHideFlags: 0
@@ -27933,7 +27661,7 @@ Transform:
   - {fileID: 1999526425}
   - {fileID: 101251354}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &2070018358 stripped
 GameObject:
@@ -28004,7 +27732,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: spreadCustomCurve.m_RotationOrder
@@ -28012,7 +27740,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_IsKinematic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: near clip plane
@@ -28074,9 +27802,9 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-      propertyPath: m_Constraints
-      value: 126
+    - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -28442,6 +28170,10 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!1 &2102044039 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: dd8c80a5a447f04418da146781b05fd8, type: 3}
+  m_PrefabInternal: {fileID: 845266221}
 --- !u!1001 &2105590915
 Prefab:
   m_ObjectHideFlags: 0

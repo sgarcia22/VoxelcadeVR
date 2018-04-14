@@ -13,6 +13,9 @@ TagManager:
   - Mole
   - Floor
   - Map
+  - RightHammer
+  - LeftHammer
+  - Waypoint
   layers:
   - Default
   - TransparentFX

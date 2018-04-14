@@ -65,6 +65,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4547288586422338}
   - component: {fileID: 114561444869453224}
+  - component: {fileID: 114793546568859684}
   m_Layer: 0
   m_Name: Enemy Spawner
   m_TagString: Untagged
@@ -202,6 +203,23 @@ MonoBehaviour:
   spawnAmountMelee: 3
   spawnAmountRange: 2
   spawnAmountMimic: 1
+  maxEnemies: 6
+  minEnemies: 2
   target: {fileID: 0}
-  spawnCall: 0
-  position: {x: 0, y: 0, z: 0}
+  spawnCall: 1
+  spawnTotal: 0
+  currTotal: 0
+  filterSpawn: 0
+  zoneCheck: 1
+--- !u!114 &114793546568859684
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1602144543494336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7996b61174dd2d6499a6d39ecc7b3b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
