@@ -22,7 +22,7 @@ public class GroundMoles : MonoBehaviour {
 	private bool start = false;
 	private OVRGrabbable leftHammer;
 	private OVRGrabbable rightHammer;
-
+	private float timeAfterGame = 0f;
 	void Start () {
 		currentMoles = 0;
 		molesSurfaced = new List<GameObject> ();
@@ -42,8 +42,9 @@ public class GroundMoles : MonoBehaviour {
 			//End the boss fight
 			if (totalTime >= maxTime) {
 				final.text = "Score: " + molesHit + "\nPress Any Button to Restart.\n";
-				if (OVRInput.Get (OVRInput.Button.One) || OVRInput.Get (OVRInput.Button.Two) || OVRInput.Get (OVRInput.Button.Three) || OVRInput.Get (OVRInput.Button.Four))
+				if (timeAfterGame >= 2.5f && OVRInput.Get (OVRInput.Button.One) || OVRInput.Get (OVRInput.Button.Two) || OVRInput.Get (OVRInput.Button.Three) || OVRInput.Get (OVRInput.Button.Four))
 					SceneManager.LoadScene (0);
+				timeAfterGame += Time.deltaTime;
 			} else {	
 				final.text = "Score: " + molesHit;
 				if (currentMoles <= maxMoles && !gotMoleIndex) {
