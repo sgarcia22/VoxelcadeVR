@@ -79,8 +79,8 @@ public class enemyMimic : MonoBehaviour {
 		{
 			if(!soundSource.isPlaying)
 			{
-			//Play sound
-			soundSource.PlayOneShot(soundEffect, 0.7F);
+				//Play sound
+				soundSource.PlayOneShot(soundEffect, 0.5F);
 			}
 		}
 
@@ -103,6 +103,10 @@ public class enemyMimic : MonoBehaviour {
 		if(Vector3.Distance(this.transform.position,target.transform.position) < 1.0)
 		{
 			state = enemyMimic.State.ATTACK;
+		}
+		else if(Vector3.Distance(this.transform.position,target.transform.position) >= 1.5)
+		{
+				state = enemyMimic.State.IDLE;
 		}
 	
 	}
