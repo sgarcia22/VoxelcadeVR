@@ -11,6 +11,12 @@ public class FoundBossDoor : MonoBehaviour {
 	[SerializeField]
 	private Transform playerPosition;
 
+	private bool hasHammer;
+
+	void Start () {
+		hasHammer = false;
+	}
+
 	void Update () {
 		if (Vector3.Distance (playerPosition.position, transform.position) < 5f && Mathf.Abs (playerPosition.position.y - transform.position.y) < 0.5f) {
 			Debug.Log ("Found");
@@ -19,9 +25,22 @@ public class FoundBossDoor : MonoBehaviour {
 	}
 
 	void OnCollisionEnter (Collision col) {
-		if (col.collider.tag ==  "Player") {
+		if (col.collider.tag.Equals ("Player") && hasHammer) {
 			SceneManager.LoadScene ("WackAMole");
 		}
 	}
+
+	private void hammerFound () {
+		hasHammer = true;
+	}
+
+	void OnEnable () {
+		HammerTime.gotHammer += hammerFound;
+	}
+
+	void OnDisable () {
+		HammerTime.gotHammer -= hammerFound;
+	}
+
 }
 

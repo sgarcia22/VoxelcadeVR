@@ -10,16 +10,20 @@ public class RoomPathGenerator : MonoBehaviour {
 	private NeighborMap map;
 	[SerializeField]
 	private BossDoorSelection BDS;
+	[SerializeField]
+	private Transform hammer;
 	private int previousNodeID;
 	private ArrayList notInPath;
 	private ArrayList inPath;
 	private RoomNodes current;
 	private bool lev0_HasStairsUP;
 	private bool lev1_HasStairsUP;
+	private Vector3 playerStart;
 
 	void Start () {
 		lev0_HasStairsUP = false;
 		lev1_HasStairsUP = false;
+		playerStart = new Vector3 (-14.38f, 0f, -14.38f);
 
 		inPath = new ArrayList ();
 		notInPath = new ArrayList ();
@@ -38,6 +42,7 @@ public class RoomPathGenerator : MonoBehaviour {
 		createDungeonPath ();
 			yield return null;
 		int doorNode = BDS.pickDoor ();
+		pickHammerLocal (doorNode);
 	}
 
 	private void createDungeonPath () {
@@ -67,6 +72,20 @@ public class RoomPathGenerator : MonoBehaviour {
 
 		// some nodes may still be unconnected, the next stage is to connect them to a neighbor whom is attached until all remaining nodes are connected.
 		connectUnconnectedNodes (2);
+	}
+
+	private void pickHammerLocal (int bossRoom) {
+		int roomNum = Random.Range (0, inPath.Count);
+
+		while (((RoomNodes) inPath [roomNum]).getID () == bossRoom && !withPlayer (((RoomNodes) inPath [roomNum]).transform.position)) {
+			roomNum = Random.Range (0, inPath.Count);
+		}
+
+		hammer.position = ((RoomNodes)inPath [roomNum]).transform.position + new Vector3 (0.3f, 0.2f, 1f);
+	}
+
+	private bool withPlayer (Vector3 hammerLoc) {
+		return (Mathf.Abs (hammerLoc.x - playerStart.x) < 0.5f && Mathf.Abs (hammerLoc.z - playerStart.z) < 0.5f);
 	}
 
 	private void connectUnconnectedNodes (int iterations) {
