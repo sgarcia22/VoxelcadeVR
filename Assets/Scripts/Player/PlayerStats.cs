@@ -11,11 +11,14 @@ public class PlayerStats : MonoBehaviour {
 	private float maxHealth;
 	[SerializeField]
 	private Slider slider;
+	[SerializeField]
+	Vector3 startPos;
 	private int level;
 
 	void Start () {
 		level = 0;
 		slider.value = (health / maxHealth);
+		transform.position = startPos;
 	}
 
 	public void updateHealth (float amount) {

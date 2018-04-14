@@ -415,6 +415,7 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   slider: {fileID: 61500300}
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!54 &41012704
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -487,7 +488,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 676581959}
   BDS: {fileID: 1775400521}
-  player: {fileID: 1383343124}
 --- !u!4 &51279305
 Transform:
   m_ObjectHideFlags: 0
@@ -2737,7 +2737,7 @@ Prefab:
     - target: {fileID: 65672818009680350, guid: 07f40e7978eb22d46bef9986e7e142aa,
         type: 2}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1073393383092918, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
       propertyPath: m_IsActive
@@ -13519,6 +13519,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &972590096
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4192985006239098, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4192985006239098, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4192985006239098, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 33.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4192985006239098, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4192985006239098, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4192985006239098, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4192985006239098, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4192985006239098, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 07f40e7978eb22d46bef9986e7e142aa, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &979756295 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1799164719180370, guid: 07f40e7978eb22d46bef9986e7e142aa,
@@ -15159,6 +15201,18 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   slider: {fileID: 1492439270}
+  startPos: {x: -14.38, y: 1.5, z: -14.38}
+--- !u!114 &1100780763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1100780761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6395b89538c8d9b428c3ef5444682a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1112116587 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1765568411671442, guid: 59404c3694dea2a45bf0c20d49a43059,
@@ -23577,6 +23631,7 @@ GameObject:
   - component: {fileID: 1775400516}
   - component: {fileID: 1775400515}
   - component: {fileID: 1775400521}
+  - component: {fileID: 1775400518}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -23598,6 +23653,7 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   slider: {fileID: 61500300}
+  startPos: {x: -14.38, y: 1.5, z: -14.38}
 --- !u!82 &1775400516
 AudioSource:
   m_ObjectHideFlags: 0
@@ -23695,6 +23751,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1775400518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1775400514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6395b89538c8d9b428c3ef5444682a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &1775400520
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27861,7 +27928,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: near clip plane
@@ -27922,6 +27989,10 @@ Prefab:
     - target: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_Constraints
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
