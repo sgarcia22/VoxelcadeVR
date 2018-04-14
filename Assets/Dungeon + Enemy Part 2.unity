@@ -6016,7 +6016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 448214065}
   text: {fileID: 305565605}
-  bossDoorIcon: {fileID: 0}
+  bossDoorIcon: {fileID: 970354688}
 --- !u!81 &426312645
 AudioListener:
   m_ObjectHideFlags: 0
