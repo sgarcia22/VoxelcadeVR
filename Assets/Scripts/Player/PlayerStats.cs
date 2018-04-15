@@ -14,11 +14,15 @@ public class PlayerStats : MonoBehaviour {
 	[SerializeField]
 	Vector3 startPos;
 	private int level;
+	//public AudioClip soundEffect;
+	//public AudioSource soundSource;
+
 
 	void Start () {
 		level = 0;
 		slider.value = (health / maxHealth);
 		transform.position = startPos;
+		//soundSource = GetComponent<AudioSource>();
 	}
 
 	public void updateHealth (float amount) {
@@ -37,6 +41,7 @@ public class PlayerStats : MonoBehaviour {
 	}
 
 	public void addToMaxHealth (float amount) {
+		
 		maxHealth += amount;
 	}
 

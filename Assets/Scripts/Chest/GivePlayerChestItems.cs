@@ -9,6 +9,7 @@ public class GivePlayerChestItems : MonoBehaviour {
 	bool hasGemItem;
 	bool hasCoinItem;
 
+
 	void Start () {
 		int rand = Random.Range (0, 2);
 
@@ -33,6 +34,8 @@ public class GivePlayerChestItems : MonoBehaviour {
 		if (rand == 0) {
 			hasCoinItem = true;
 		}
+
+		
 	}
 
 	void OnTriggerEnter (Collider c) {

@@ -9087,7 +9087,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 615803983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -70, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 532492402}
@@ -15391,6 +15391,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6395b89538c8d9b428c3ef5444682a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundEffect: {fileID: 8300000, guid: a37b1237728b8ae4e8a09ef13255bf14, type: 3}
+  soundSource: {fileID: 0}
 --- !u!114 &1100780764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18869,7 +18871,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1389144028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -70, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 124302071}
@@ -23949,7 +23951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1775400515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24073,6 +24075,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6395b89538c8d9b428c3ef5444682a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundEffect: {fileID: 8300000, guid: a37b1237728b8ae4e8a09ef13255bf14, type: 3}
+  soundSource: {fileID: 0}
 --- !u!114 &1775400519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28315,7 +28319,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_Constraints
@@ -28323,7 +28327,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
