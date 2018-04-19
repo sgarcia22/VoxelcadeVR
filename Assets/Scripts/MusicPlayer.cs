@@ -28,7 +28,7 @@ public class MusicPlayer : MonoBehaviour {
 			soundSource.PlayOneShot(soundClips[track], 0.3F);
 			track++;
 			musicPlay = false;
-			if(track > soundClips.Length)
+			if(track >= soundClips.Length)
 			{
 				track = 0;
 			}

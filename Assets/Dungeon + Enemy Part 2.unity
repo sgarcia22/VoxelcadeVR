@@ -696,6 +696,11 @@ Prefab:
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 1471318436}
+    - target: {fileID: 114968128124644952, guid: 4fa6ee9abe0c6884dbc6b45c44e08f3f,
+        type: 2}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4fa6ee9abe0c6884dbc6b45c44e08f3f, type: 2}
   m_IsPrefabParent: 0
